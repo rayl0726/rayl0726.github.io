@@ -19,6 +19,13 @@
     <title>java并发总结 - Hexo</title>
   
   
+    <meta name="description" content="一 概念：
+共享的：变量可以被多个线程访问，
+
+可变的：变量在生命周期内可以发生变化，
+
+原子性：复合操作保证要么都完成，要么都不完成，">
+  
 
   <!-- feed -->
   
@@ -90,8 +97,8 @@
           
           
           
+            ChelseaRay
           
-            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
           
         </a>
       
@@ -343,7 +350,7 @@
         
           
   <h1 class="title">
-    <a href="/2020/06/18/hello-world/">
+    <a href="/2020/06/07/java-concurrent/">
       java并发总结
     </a>
   </h1>
@@ -357,9 +364,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="rayl0726.github.io" rel="nofollow">
-    <img src="https://pan.baidu.com/disk/home#/all?vmode=list&path=%2F%E7%85%A7%E7%89%87">
-    <p>Chelsea-Ray</p>
+  <a href="http://rayl0726.github.io" target="_blank" rel="nofollow noopener">
+    <img src="https://github.com/rayl0726/repo/blob/master/1440169830.jpg?raw=true">
+    <p>ChelseaRay</p>
   </a>
 </div>
 
@@ -374,7 +381,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 18, 2020</p>
+    <p>发布于：Jun 7, 2020</p>
   </a>
 </div>
 
@@ -403,7 +410,7 @@
 <li><p>可变的：变量在生命周期内可以发生变化，</p>
 </li>
 <li><p>原子性：复合操作保证要么都完成，要么都不完成，</p>
-</li>
+<a id="more"></a></li>
 <li><p>竞态条件：不正确的执行顺序出现的不正确的执行结果，两个线程分别对一个数据操作，结果操作的顺序没有保证，会导致结果不正确，</p>
 </li>
 <li><p>先检查后执行（check-then-act）：先要判断变量a是否为1，再操作另外一个变量b，在这期间可能会有另外一个线程提前改变了变量b的值，这样导致数据不一致；其他异常情况：数据覆盖，文件破坏等<br>出现的情况：延迟初始化(将对象的初始化操作推迟到实际使用的时候才进行，并确保只被初始化一次），在初始化之前这段时间可能会造成判断条件不一致的情况。</p>
@@ -558,59 +565,6 @@
 
   
 
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
-        
-          
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            <p>本文永久链接是：<a href=http://yoursite.com/2020/06/18/hello-world/>http://yoursite.com/2020/06/18/hello-world/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-  </div>
-</section>
-
-  
-
 
               
             </div>
@@ -624,7 +578,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T01:09:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T01:59:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 19, 2020</p>
@@ -643,52 +597,6 @@
 
         
       
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/06/18/hello-world/&title=java并发总结 - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/06/18/hello-world/&title=java并发总结 - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/06/18/hello-world/&title=java并发总结 - Hexo&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
         
       
     </div>
@@ -793,7 +701,7 @@
       list-max-height='340px'
       server='netease'
       type='playlist'
-      id='3175833810'
+      id='2789155494'
       list-folded='true'>
     </meting-js>
   
@@ -807,23 +715,7 @@
         <div class="social-wrapper">
           
             
-              <a href="/atom.xml"
-                class="social fas fa-rss flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
-              </a>
-            
-          
-            
-              <a href="mailto:me@xaoxuu.com"
-                class="social fas fa-envelope flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
-              </a>
-            
-          
-            
-              <a href="https://github.com/xaoxuu"
+              <a href="https://github.com/rayl0726"
                 class="social fab fa-github flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
@@ -831,7 +723,7 @@
             
           
             
-              <a href="https://music.163.com/#/user/home?id=63035382"
+              <a href="https://music.163.com/#/user/home?id=45474957"
                 class="social fas fa-headphones-alt flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
