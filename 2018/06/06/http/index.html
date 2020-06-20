@@ -16,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>说说 - Hexo</title>
+    <title>http - Hexo</title>
   
+    <meta name="keywords" content="http">
+  
+  
+    <meta name="description" content="近期专门重头学习了一遍http协议，记录一下学习的心得，以及以后忘记了再来查找。">
   
 
   <!-- feed -->
@@ -68,71 +72,7 @@
 
 <body>
   
-  <div class="cover-wrapper">
-    
-      <cover class='cover page half'>
-        <div class='cover-body'>
-  <div class='a'>
-    
-    
-      <p class="title">ChelseaRay</p>
-    
-    
-      <p class="subtitle">lalala</p>
-    
-  </div>
-  <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="你想要什么～" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation'>
-      <ul class='cover-list-h'>
-        
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/"
-                
-                
-                id="http:rayl0726githubio">
-                <i class='fas fa-book fa-fw'></i>首页
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/archives/"
-                
-                
-                id="http:rayl0726githubioarchives">
-                <i class='fas fa-archive fa-fw'></i>博文
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/friends/"
-                
-                
-                id="http:rayl0726githubiofriends">
-                <i class='fa fa-link fa-fw'></i>友情链接
-              </a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-      </cover>
-    
-    <div id="loading-bar-wrapper">
+  <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -556,10 +496,9 @@
 
 <script>setLoadingBarProgress(40);</script>
 
-  </div>
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper'>
       
 
@@ -567,7 +506,7 @@
   
 
   
-    <article id="page" class="post white-box reveal shadow article-type-page" itemscope itemprop="blogPost">
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
       
 
 
@@ -579,8 +518,8 @@
         
           
   <h1 class="title">
-    <a href="/shuoshuo/index.html">
-      说说
+    <a href="/2018/06/06/http/">
+      http
     </a>
   </h1>
 
@@ -603,6 +542,14 @@
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/tech/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>tech</p>
+    </a>
+  </div>
+
 
             
           
@@ -610,7 +557,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 20, 2020</p>
+    <p>发布于：Jun 6, 2018</p>
   </a>
 </div>
 
@@ -622,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/shuoshuo/" class="leancloud_visitors" data-flag-title="说说">
+      <span id="/2018/06/06/http/" class="leancloud_visitors" data-flag-title="http">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -655,28 +602,234 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<body>
+          <p>近期专门重头学习了一遍http协议，记录一下学习的心得，以及以后忘记了再来查找。</p>
+<a id="more"></a>
+<h1 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h1><ol>
+<li>MAC</li>
+<li>ARP</li>
+<li>URI</li>
+<li>URL</li>
+<li>RFC</li>
+<li>SSL</li>
+<li>TLS</li>
+</ol>
+<h1 id="1-简述TCP-IP"><a href="#1-简述TCP-IP" class="headerlink" title="1.简述TCP/IP"></a>1.简述TCP/IP</h1><p>提到http就不得不提tcp/ip协议，我们通常使用的网络都是以tcp/ip为基础的，而http其实算是在其应用层使用的一个协议，所以先了解一下tcp/ip的分层结构：<br><img src="https://raw.githubusercontent.com/rayl0726/repo/master/5cdfd50905ca721779.png" alt="http1"><br>从高到底分为应用层，传输层，网络层，链路层；<br>分层的设计结构可以模块化，便于自由设计；</p>
+<h2 id="1-1应用层"><a href="#1-1应用层" class="headerlink" title="1.1应用层"></a>1.1应用层</h2><p>向用户提供应用服务的通信结构；</p>
+<p>在该层主要存在：http，ftp，dns等</p>
+<p>dns主要用于对域名解析为ip地址</p>
+<h2 id="1-2传输层"><a href="#1-2传输层" class="headerlink" title="1.2传输层"></a>1.2传输层</h2><p>提供数据传输服务</p>
+<p>该层主要存在：tcp，udp；</p>
+<p>在tcp协议中将数据分为数据包进行传输，并且用了传说中的三次握手和四次分手的方式；</p>
+<h2 id="1-3网络层"><a href="#1-3网络层" class="headerlink" title="1.3网络层"></a>1.3网络层</h2><p>传输数据包</p>
+<p>该层主要存在：ip；</p>
+<p>ip协议则利用了MAC可以中转传输;</p>
+<h2 id="1-4链路层"><a href="#1-4链路层" class="headerlink" title="1.4链路层"></a>1.4链路层</h2><p>处理网络硬件相关</p>
+<p>该层主要存在：操作系统，网卡，驱动，光纤等；</p>
+<p>数据的传输是从发送端的高层到底层，接收端的底层到高层，每一层的数据在首部会封装关键字，便于解析识别。</p>
+<h1 id="2-HTTP协议"><a href="#2-HTTP协议" class="headerlink" title="2 HTTP协议"></a>2 HTTP协议</h1><p>http协议是由客户端请求，服务端响应请求并返回，服务端在没有请求的情况下不会主动响应；</p>
+<p>http协议是无状态协议，也就是传输的信息不会保存；<br>http协议通过uri定位资源；</p>
+<p>http协议的连接在1.0中每次通信都要连接和断开一次，这种方式以不适用于当前的网络通信，所以在1.1中有了持久连接（keep-alive），也就是只要一方没有提出断开，则tcp连接将保持；</p>
+<p>http协议本来是请求-响应后才能法下一个请求，但是有了持久连接，完全可以不等响应直接发送多个请求，而响应也可以依次返回；</p>
+<p>http协议由于无状态，所以考虑一种情况：当我们登陆一个页面跳转后，我们在下一个页面如何保存登陆信息？这时出现了cookie技术，客户端请求，服务器端响应，并在响应报文首部中写入set-cookie信息；客户端再请求，请求报文首部中就有了上一次的cookie信息，服务器端响应，发现熟悉的cookie信息，就把之前的状态信息一并返回。</p>
+<p>http协议还存在一个内容协商，也就是客户端发来的请求，服务器这有多个资源符合，例如不同语言。通过在请求报文首部中加入accept等，可以让服务器判断出要返回哪些资源，这个就是内容协商。</p>
+<p>关于http/2.0，先得说说SPDY，这是一个谷歌开发的实验性协议，主要是想通过对http协议的限制作出优化，进而减少网页加载的时间，其目标大致分为：</p>
+<ul>
+<li>页面加载时间降低50%；</li>
+<li>无需网站作者修改任何内容；</li>
+<li>把部署复杂性降低，不改变网络基础设施；</li>
+</ul>
+<blockquote>
+<p>SPDY通过优先级和多路复用，使得只需要建立一个TCP连接即可传送网页内容及图片等资源。SPDY中广泛应用了TLS加密，传输内容也均以gzip或DEFLATE格式压缩（与HTTP不同，HTTP的头部并不会被压缩）。另外，除了像HTTP的网页服务器被动的等待浏览器发起请求外，SPDY的网页服务器还可以主动推送内容。</p>
+</blockquote>
+<blockquote>
+<p>SPDY并不用于取代HTTP，它只是修改了HTTP的请求与应答在网络上传输的方式；这意味着只需增加一个SPDY传输层，现有的所有服务端应用均不用做任何修改。 当使用SPDY的方式传输，HTTP请求会被处理、标记简化和压缩。比如，每一个SPDY端点会持续跟踪每一个在之前的请求中已经发送的HTTP报文头部，从而避免重复发送还未改变的头部。而还未发送的报文的数据部分将在被压缩后被发送。</p>
+</blockquote>
+<blockquote>
+<p>2015年9月，Google 宣布了计划，移除对SPDY的支持，拥抱 HTTP/2.0，并将在Chrome 51中生效。</p>
+</blockquote>
+<p>所以有了http/2.0，具体2.0版本的好处如下：</p>
+<p>协议改进了对于报文的解析，采用二进制，这样只有0和1的组合将更加便捷和稳定；同时对于request采用共享连接诶的方式，在一个连接中可以存在多个request，每个都有自己的id，服务器端根据id可以分类到不同的请求；http是文本传输，根据结构其首部header部分的内容可能会非常多，传输起来很消耗资源，http/2.0可以压缩header，减少传输消耗；最后还有就是增加了server push功能。</p>
+<h1 id="3-HTTP报文结构"><a href="#3-HTTP报文结构" class="headerlink" title="3 HTTP报文结构"></a>3 HTTP报文结构</h1><p>请求报文结构：</p>
+<table align="center"><tr><th>说明</th> <th colspan="6" >内容</th></tr><td>请求行</td><td>方法</td><td>sp</td><td>URI</td><td>sp</td><td>协议版本</td><td>CR+LF</td><tr><td>首部行</td><td colspan="2">首部字段名：</td><td>sp</td><td colspan="2">值</td><td>CR+LF</td></tr><tr><td colspan="7">CR+LF</td></tr><tr><td colspan="7">主体</td></tr></table>
+
+<p>响应报文结构：</p>
+<table align="center"><tr><th>说明</th> <th colspan="6">内容</th></tr><td>响应行</td><td>协议版本</td><td>sp</td><td>状态码</td><td>sp</td><td>状态信息</td><td>CR+LF</td><tr><td>首部行</td> <td colspan="2">首部字段名：</td><td>sp</td><td colspan="2">值</td><td>CR+LF</td></tr><tr><td colspan="7">CR+LF</td></tr><tr><td colspan="7">主体</td></tr></table>
+
+<h1 id="4-HTTP请求方法"><a href="#4-HTTP请求方法" class="headerlink" title="4 HTTP请求方法"></a>4 HTTP请求方法</h1><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>请求方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP/0.9</td>
+<td>只存在一种GET方法，请求也只有GET <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> 一行</td>
+</tr>
+<tr>
+<td>HTTP/1.0</td>
+<td>支持POST，GET，HEAD</td>
+</tr>
+<tr>
+<td>HTTP/1.1</td>
+<td>支持POST，GET，HEAD，新增五种：OPTIONS，PUT，DELETE，TRACE，CONNECT</td>
+</tr>
+<tr>
+<td>HTTP/2.0</td>
+<td>同HTTP/1.1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>请求获取指定资源，并返回主体。正常应该只用于数据的获取。</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>请求一个与GET请求响应相同的响应，但是响应没有响应的主体。用于查看服务端的性能。</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>向指定的资源提交数据，请求服务器的处理。用于表单提交，文件上传等，数据存在于请求的主体中。PS：post请求可能会对现有资源作出更改。</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>用来查询针对请求URI指定资源支持的方法。</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>PUT方法用来传输文件，就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存在请求URI指定的位置。但是HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全问题，故一般不用。</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>指明客户端想让服务器删除某个资源，与PUT方法相反，按URI删除指定资源。</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>客户端可以对请求消息的传输路径进行追踪，TRACE方法是让Web服务器端将之前的请求通信还给客户端的方法。</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL（安全套接层）和TLS（传输层安全）协议把通信内容加密后经网络隧道传输。</td>
+</tr>
+</tbody></table>
+<p>由于GET和POST方法的使用个最为广泛，故对其作出对比：</p>
+<ol>
+<li><p>GET方法用于信息获取，它是安全的（安全：指非修改信息，如数据库方面的信息），而POST方法是用于修改服务器上资源的请求；</p>
+</li>
+<li><p>GET请求的数据会附在URL之后，而POST方法提交的数据则放置在HTTP报文实体的主体里，所以POST方法的安全性比GET方法要高；</p>
+</li>
+<li><p>GET方法传输的数据量一般限制在2KB，其原因在于：GET是通过URL提交数据，而URL本身对于数据没有限制，但是不同的浏览器对于URL是有限制的，比如IE浏览器对于URL的限制为2KB，而Chrome，FireFox浏览器理论上对于URL是没有限制的，它真正的限制取决于操作系统本身；POST方法对于数据大小是无限制的，真正影响到数据大小的是服务器处理程序的能力。</p>
+</li>
+</ol>
+<h1 id="5-HTTP状态码"><a href="#5-HTTP状态码" class="headerlink" title="5 HTTP状态码"></a>5 HTTP状态码</h1><h2 id="5-1-1XX"><a href="#5-1-1XX" class="headerlink" title="5.1 1XX"></a>5.1 1XX</h2><p>信息性状态码，请求正在处理中</p>
+<h2 id="5-2-2XX"><a href="#5-2-2XX" class="headerlink" title="5.2 2XX"></a>5.2 2XX</h2><p>成功状态码，请求正常处理完毕</p>
+<ul>
+<li>200 OK 请求正常处理；</li>
+<li>204 No Content 请求成功，但是没有资源返回；</li>
+<li>206 Partial Content 请求部分资源。</li>
+</ul>
+<h2 id="5-3-3XX"><a href="#5-3-3XX" class="headerlink" title="5.3 3XX"></a>5.3 3XX</h2><p>重定向状态码，需要附加操作完成请求</p>
+<ul>
+<li>301 Moved Permanently 永久重定向，也就是资源的URI更新了，之前保存书签要更新了，永久性的，规定不能将请求POST改变为GET</li>
+<li>302 Found 临时重定向，资源的URI更新了，但是以后可能还改变，规定不能将请求POST改变为GET</li>
+<li>303 See Other 类似302，但应该使用GET方法请求</li>
+<li>304 Not Modified 资源找到了，但是不符合附加条件</li>
+<li>307 Temporary Redirect 临时重定向，且不会从POST变成GET</li>
+</ul>
+<h2 id="5-4-4XX"><a href="#5-4-4XX" class="headerlink" title="5.4 4XX"></a>5.4 4XX</h2><p>客户端错误状态码，服务器无法处理请求</p>
+<ul>
+<li>400 Bad Request 请求报文语法错误</li>
+<li>401 Unauthorized 表示请求需要通过认证（BASIC，DIGEST）首次会返回认证页面，以后默认认证失败</li>
+<li>403 Forbidden 服务器拒绝访问</li>
+<li>404 Not Found 服务器无法找到请求资源</li>
+</ul>
+<h2 id="5-5-5XX"><a href="#5-5-5XX" class="headerlink" title="5.5 5XX"></a>5.5 5XX</h2><p>服务端错误状态码，服务器端处理请求失败</p>
+<ul>
+<li>500 Internal Server Error 服务器出现错误</li>
+<li>503 Service Unavailable 服务器暂时超载或者停机维护</li>
+</ul>
+<h1 id="6-HTTP通信的服务器"><a href="#6-HTTP通信的服务器" class="headerlink" title="6 HTTP通信的服务器"></a>6 HTTP通信的服务器</h1><p>http1.1支持但台服务器搭建多个站点，也就是不同的域名可能指向相同的ip地址；</p>
+<p>http通信中可以存在转发的程序：代理，网关，隧道；</p>
+<h2 id="6-1-代理"><a href="#6-1-代理" class="headerlink" title="6.1 代理"></a>6.1 代理</h2><p>简单来说就像一个中间人，将客户端的请求转发给服务器端，并把响应返回到客户端；</p>
+<p>既然有了代理，如果只转发岂不是很浪费，于是有了：缓存代理，透明代理</p>
+<h3 id="6-1-1缓存代理"><a href="#6-1-1缓存代理" class="headerlink" title="6.1.1缓存代理"></a>6.1.1缓存代理</h3><p>代理转发资源时，先把从源服务器端获得的资源缓存在服务器，下次再收到相同的请求时就直接返回缓存资源；</p>
+<p>但是缓存是存在有效期的，长时间不更新肯定是不可以的，所以代理服务器会向原服务器求证缓存资源的有效性，若失效则重新获取；</p>
+<p>缓存的资源除了存在代理服务器中，还可以存在客户端的磁盘中，效果一样，同样存在有效期。</p>
+<h3 id="6-1-2透明代理"><a href="#6-1-2透明代理" class="headerlink" title="6.1.2透明代理"></a>6.1.2透明代理</h3><p>不改变请求报文，响应报文的代理；</p>
+<h3 id="6-1-3不透明代理"><a href="#6-1-3不透明代理" class="headerlink" title="6.1.3不透明代理"></a>6.1.3不透明代理</h3><p>改变请求报文，响应报文的代理;</p>
+<h2 id="6-2-网关"><a href="#6-2-网关" class="headerlink" title="6.2 网关"></a>6.2 网关</h2><p>类似代理，但是它可以提供非http协议的通信，而且有高安全性，所以可以应用在购物结算等；</p>
+<h2 id="6-3-隧道"><a href="#6-3-隧道" class="headerlink" title="6.3 隧道"></a>6.3 隧道</h2><p>非常形象，将通信线路加密（ssl等），保证安全通信.</p>
+<h1 id="7-HTTP首部"><a href="#7-HTTP首部" class="headerlink" title="7 HTTP首部"></a>7 HTTP首部</h1><p>首部有很多，可以直接在网上查找使用。</p>
+<h1 id="8-HTTP不同版本的比较"><a href="#8-HTTP不同版本的比较" class="headerlink" title="8 HTTP不同版本的比较"></a>8 HTTP不同版本的比较</h1><p>主要对比1.0和1.1吧</p>
+<table>
+<thead>
+<tr>
+<th>比较点</th>
+<th>1.0</th>
+<th>1.1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>keep-alive</td>
+<td>没有持久链接，每次请求后都会断开tcp</td>
+<td>一方未提出断开，tcp保持连接</td>
+</tr>
+<tr>
+<td>host</td>
+<td>在报文的uri部分指定好了链接域，没有host首部</td>
+<td>可以在host首部指定域名</td>
+</tr>
+<tr>
+<td>range</td>
+<td>没有range首部</td>
+<td>在range首部可以请求部分资源，减小带宽消耗</td>
+</tr>
+<tr>
+<td>请求方法</td>
+<td>3种</td>
+<td>多了5种</td>
+</tr>
+<tr>
+<td>状态码</td>
+<td>16个</td>
+<td>24个</td>
+</tr>
+</tbody></table>
+<p>参考文档：</p>
+<p><a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解HTTP</a></p>
+<p><a href="https://www.cnblogs.com/foodoir/p/5911099.html" target="_blank" rel="noopener">HTTP请求方法详解</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/SPDY" target="_blank" rel="noopener">SPDY</a></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
     
-    <script>
-        // var serverurl="https://jgqjzjx4.lc-cn-n1-shared.com"
-        var img="https://github.com/rayl0726/repo/blob/master/1440169830.jpg?raw=true";
-        var appID="OAj7M7Gq8NRUM7odbsE2j18d-MdYXbMMI";
-        var appKEY="48xggJs54AHQTOtFC6XRRUlf";
-        var per=5;
-        var username="ChelseaRay";
-        var atemoji_array={
-                huaji: "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/smilies/icon_huaji.gif",
-                baiyan:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/baiyan.png",
-                bishi:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/bishi.png",
-                bizui:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/bizui.png",
-                chan:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/chan.png"}
-    </script>
     
-    <div id="lazy"></div>
-    <div id="artitalk"></div>
-    <script type="text/javascript" src="https://unpkg.com/artitalk"></script>
-</body>
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+              
+            </div>
           
         </div>
         
@@ -687,7 +840,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-20T22:50:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-20T23:31:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 20, 2020</p>
@@ -698,6 +851,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/http/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>http</p></a></div>
+
 
         
       
@@ -714,6 +870,16 @@
 
         
         
+          <div class="prev-next">
+            
+              <a class='prev' href='/2018/06/06/java-collection-set/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java集合(Set)</p>
+                <p class='content'>Set接口Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。...</p>
+              </a>
+            
+            
+          </div>
+        
       </section>
     </article>
   
@@ -723,7 +889,24 @@
 
 
 
-  
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
 
 
   
@@ -735,6 +918,13 @@
 
 
 
+  <script>
+    window.subData = {
+      title: 'http',
+      tools: true
+    }
+  </script>
+
 
 </div>
 <aside class='l_side'>
@@ -745,75 +935,18 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='http://rayl0726.github.io'>
-          <img no-lazy src='https://github.com/rayl0726/repo/blob/master/1440169830.jpg?raw=true'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/tech/" href="/categories/tech/"
-            id="categoriestech"
-            ><div class='name'>tech</div><div class='badge'>(4)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1应用层"><span class="toc-text">1.1应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2传输层"><span class="toc-text">1.2传输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3网络层"><span class="toc-text">1.3网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4链路层"><span class="toc-text">1.4链路层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-1XX"><span class="toc-text">5.1 1XX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-2XX"><span class="toc-text">5.2 2XX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-3XX"><span class="toc-text">5.3 3XX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-4XX"><span class="toc-text">5.4 4XX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-5XX"><span class="toc-text">5.5 5XX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-代理"><span class="toc-text">6.1 代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1缓存代理"><span class="toc-text">6.1.1缓存代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2透明代理"><span class="toc-text">6.1.2透明代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-3不透明代理"><span class="toc-text">6.1.3不透明代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-网关"><span class="toc-text">6.2 网关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-隧道"><span class="toc-text">6.3 隧道</span></a></li></ol>
     </div>
   </section>
 

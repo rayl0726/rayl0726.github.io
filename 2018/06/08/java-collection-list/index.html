@@ -16,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>说说 - Hexo</title>
+    <title>java集合(List) - Hexo</title>
   
+    <meta name="keywords" content="java,list">
+  
+  
+    <meta name="description" content="List接口List接口继承了Collection接口，List中的元素是有序，可重复的，因为List的存储结构是序列，在内存中开辟的存储空间是连续的，其空间的指针也就对应元素的索引。list对于元素的相等通过equals方法判断，返回true则相等；">
   
 
   <!-- feed -->
@@ -68,71 +72,7 @@
 
 <body>
   
-  <div class="cover-wrapper">
-    
-      <cover class='cover page half'>
-        <div class='cover-body'>
-  <div class='a'>
-    
-    
-      <p class="title">ChelseaRay</p>
-    
-    
-      <p class="subtitle">lalala</p>
-    
-  </div>
-  <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="你想要什么～" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation'>
-      <ul class='cover-list-h'>
-        
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/"
-                
-                
-                id="http:rayl0726githubio">
-                <i class='fas fa-book fa-fw'></i>首页
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/archives/"
-                
-                
-                id="http:rayl0726githubioarchives">
-                <i class='fas fa-archive fa-fw'></i>博文
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/friends/"
-                
-                
-                id="http:rayl0726githubiofriends">
-                <i class='fa fa-link fa-fw'></i>友情链接
-              </a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-      </cover>
-    
-    <div id="loading-bar-wrapper">
+  <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -556,10 +496,9 @@
 
 <script>setLoadingBarProgress(40);</script>
 
-  </div>
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper'>
       
 
@@ -567,7 +506,7 @@
   
 
   
-    <article id="page" class="post white-box reveal shadow article-type-page" itemscope itemprop="blogPost">
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
       
 
 
@@ -579,8 +518,8 @@
         
           
   <h1 class="title">
-    <a href="/shuoshuo/index.html">
-      说说
+    <a href="/2018/06/08/java-collection-list/">
+      java集合(List)
     </a>
   </h1>
 
@@ -603,6 +542,14 @@
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/tech/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>tech</p>
+    </a>
+  </div>
+
 
             
           
@@ -610,7 +557,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 20, 2020</p>
+    <p>发布于：Jun 8, 2018</p>
   </a>
 </div>
 
@@ -622,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/shuoshuo/" class="leancloud_visitors" data-flag-title="说说">
+      <span id="/2018/06/08/java-collection-list/" class="leancloud_visitors" data-flag-title="java集合(List)">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -655,28 +602,69 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<body>
+          <h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><p>List接口继承了Collection接口，List中的元素是有序，可重复的，因为List的存储结构是序列，在内存中开辟的存储空间是连续的，其空间的指针也就对应元素的索引。<br>list对于元素的相等通过equals方法判断，返回true则相等；</p>
+<a id="more"></a>
+<p>List还自带了一个listiterator()方法，返回的是listiterator对象，它继承了iterator，额外提供了向前迭代的功能，同时还能添加元素,ite<br>rator本身只提供了向后遍历，删除元素。<br>List主要的实现类有三个：ArrayList，Vector，LinkedList。</p>
+<h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><p>它的底层实现是数组，所以存储的数据可以按照索引查找，它拥有3种构造器：</p>
+<ol>
+<li>ArrayList()：构造一个初始容量为10的空列表。</li>
+<li>ArrayList(Collection&lt;? extends E&gt; c)：构造一个包含指定collection的元素的列表，这些元素是按照该collection的迭代器返回它们的顺序排列的。</li>
+<li>ArrayList(int initialCapacity)：构造一个具有指定初始容量的空列表。</li>
+</ol>
+<p>我们知道ArrayList是可以不用设置初始长度，简单理解为“无限”往里面添加元素（这个无限只是象征），那它的实现是怎样的？<br>这里涉及到了arraylist的扩容，通过构造器我们知道默认的初始容量是10，那超过后怎样添加呢？这里我们查看源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">        ensureCapacityInternal(size + 1);  &#x2F;&#x2F; Increments modCount!!</span><br><span class="line">        elementData[size++] &#x3D; e;</span><br><span class="line">        return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先执行了ensureCapacityInternal()方法，参数就是list现有长度加一；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private void ensureCapacityInternal(int minCapacity) &#123;</span><br><span class="line">        if (elementData &#x3D;&#x3D; DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">            minCapacity &#x3D; Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ensureExplicitCapacity(minCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先判断list是否为空，为空就把最小容量需求定义为：默认容量（10）和最小容量需求的最大值，再进入ensureExplicitCapacity()方法;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private void ensureExplicitCapacity(int minCapacity) &#123;</span><br><span class="line">        modCount++;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; overflow-conscious code</span><br><span class="line">        if (minCapacity - elementData.length &gt; 0)</span><br><span class="line">            grow(minCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>确定了最小需求容量后，如果比list现有的数据长度长的话，那就要对list进行扩容了，扩容用grow()方法；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private void grow(int minCapacity) &#123;</span><br><span class="line">        &#x2F;&#x2F; overflow-conscious code</span><br><span class="line">        int oldCapacity &#x3D; elementData.length;</span><br><span class="line">        int newCapacity &#x3D; oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">        if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">            newCapacity &#x3D; minCapacity;</span><br><span class="line">        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">            newCapacity &#x3D; hugeCapacity(minCapacity);</span><br><span class="line">        &#x2F;&#x2F; minCapacity is usually close to size, so this is a win:</span><br><span class="line">        elementData &#x3D; Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private static int hugeCapacity(int minCapacity) &#123;</span><br><span class="line">        if (minCapacity &lt; 0) &#x2F;&#x2F; overflow</span><br><span class="line">            throw new OutOfMemoryError();</span><br><span class="line">        return (minCapacity &gt; MAX_ARRAY_SIZE) ?</span><br><span class="line">            Integer.MAX_VALUE :</span><br><span class="line">            MAX_ARRAY_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>扩容的方式先把原有list容量扩大为1.5倍，这时候判断扩容后的容量和最小需求容量，若前者比后者还小，那就证明1.5倍不可以，直接让新的容量等于最小需求就可以了，这样下次再添加元素时就可以扩大1.5倍了；还要判断新的容量是否超过list允许的最大容量，这个最大容量JDK1.8定义的是Integer.MAX_VALUE - 8，原因我也不晓得- -|||，如果比最大容量大，进入hugeCapacity()方法；</p>
+<p>在这里先判断是否为负数，然后判断最小容量需求和默认最大容量的大小，大就返回整型的最大值，小或相等就返回默认最大容量；</p>
+<p>最后利用array的copy方法将数组复制到新的数组中elementData = Arrays.copyOf(elementData, newCapacity);<br>这里的操作会用到很多IO，会影响arraylist的使用效率，所以我们应该尽量避免使用arraylist的自动扩容，尽量提前定义好容量；</p>
+<p>ArrayList转换数组可以通过toArray()方法，这个方法的实现其实是 Arrays.copyOf()方法，其实你也可以直接用Arrays的很多方法来操作ArrayList，毕竟有个外号–动态数组；</p>
+<p>ArrayList线程不安全，很明显，里面的方法都没有同步，所以可以用Collections.synchronizedList(),在初始化的时候进行；</p>
+<h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><p>这是一个上古时代的类，它和ArrayList基本一致但是它是线程安全的，这导致它的性能不如ArrayList，先看看它的构造器：</p>
+<ol>
+<li>Vector()：构造一个初始容量为10的空列表。</li>
+<li>Vector(Collection&lt;? extends E&gt; c)：构造一个包含指定collection的元素的列表，这些元素是按照该collection的迭代器返回它们的顺序排列的。</li>
+<li>Vector(int initialCapacity)：构造一个具有指定初始容量的空列表。</li>
+<li>Vector(int initialCapacity, int capacityIncrement)：构造一个具有指定初始容量和容量增长的空列表。<br>多了一个容量增长，这个参数很明显，在扩容的时候在原来list的基础上加上这个参数就是扩容后的容量，如果没有设置，Vector的扩容是原来的两倍，其他的方法相关与ArrayList基本一致；</li>
+</ol>
+<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><p>它实现了List<E>, Deque<E>两个接口，它的数据结构就不是序列了，而是双端链表，这样的链式结构带来的好处就是这玩意不用扩容，每个数据在内存中存储不连续，所以使劲加。。。</p>
+<p>构造方法:</p>
+<ol>
+<li>LinkedList(): 构造一个空列表。</li>
+<li>LinkedList(Collection&lt;? extends E&gt; c) :构造一个包含指定collection中的元素的列表，这些元素按其collection的迭代器返回的顺序排列。</li>
+</ol>
+<p>由于是链式结构，所以它在查询的时候很麻烦，要从头一个一个找，不像ArrayList直接按索引查找，但是它在指定位置增加，删除的时候效率很高，只需要把节点的指针改变指的元素就可以，而ArrayList需要把指定位置之后的元素都移动位置，因为存储是连续的，索引都要变动；</p>
+<p>在转换数组的时候，LinkedList明显缓慢，它要通过遍历实现；</p>
+<p>它因为是双端队列，所以自然会有一些队列的方法加入，获取头结点，尾节点等等；</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
     
-    <script>
-        // var serverurl="https://jgqjzjx4.lc-cn-n1-shared.com"
-        var img="https://github.com/rayl0726/repo/blob/master/1440169830.jpg?raw=true";
-        var appID="OAj7M7Gq8NRUM7odbsE2j18d-MdYXbMMI";
-        var appKEY="48xggJs54AHQTOtFC6XRRUlf";
-        var per=5;
-        var username="ChelseaRay";
-        var atemoji_array={
-                huaji: "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/smilies/icon_huaji.gif",
-                baiyan:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/baiyan.png",
-                bishi:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/bishi.png",
-                bizui:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/bizui.png",
-                chan:"https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-emoji/chan.png"}
-    </script>
     
-    <div id="lazy"></div>
-    <div id="artitalk"></div>
-    <script type="text/javascript" src="https://unpkg.com/artitalk"></script>
-</body>
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+              
+            </div>
           
         </div>
         
@@ -687,7 +675,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-20T22:50:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-20T23:35:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 20, 2020</p>
@@ -698,6 +686,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/list/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>list</p></a></div>
+
 
         
       
@@ -714,6 +705,28 @@
 
         
         
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/06/07/java-concurrent/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java并发总结</p>
+                <p class='content'>一 概念：
+共享的：变量可以被多个线程访问，
+
+可变的：变量在生命周期内可以发生变化，
+
+原子性：复合操作保证要么都完成，要么都不完成，
+
+竞态条件：不正确的执行顺序出现的不正确的执行结果，两个...</p>
+              </a>
+            
+            
+              <a class='next' href='/2018/06/06/java-collection-set/'>
+                <p class='title'>java集合(Set)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Set接口Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。...</p>
+              </a>
+            
+          </div>
+        
       </section>
     </article>
   
@@ -723,7 +736,24 @@
 
 
 
-  
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
 
 
   
@@ -735,6 +765,13 @@
 
 
 
+  <script>
+    window.subData = {
+      title: 'java集合(List)',
+      tools: true
+    }
+  </script>
+
 
 </div>
 <aside class='l_side'>
@@ -745,75 +782,18 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='http://rayl0726.github.io'>
-          <img no-lazy src='https://github.com/rayl0726/repo/blob/master/1440169830.jpg?raw=true'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/tech/" href="/categories/tech/"
-            id="categoriestech"
-            ><div class='name'>tech</div><div class='badge'>(4)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List接口"><span class="toc-text">List接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList"><span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vector"><span class="toc-text">Vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedList"><span class="toc-text">LinkedList</span></a></li></ol>
     </div>
   </section>
 
