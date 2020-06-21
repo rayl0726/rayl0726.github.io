@@ -605,17 +605,17 @@
           <p>补习了http之后又深入的学习了https，记录一下。</p>
 <a id="more"></a>
 <h1 id="HTTPS相关概念"><a href="#HTTPS相关概念" class="headerlink" title="HTTPS相关概念"></a>HTTPS相关概念</h1><p>首先需要了解几个概念：</p>
-<h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2><p>如图：<br><img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/https2.jpg?raw=true" alt="https1"></p>
+<h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2><p>如图：<br><img src="https://cdn.jsdelivr.net/gh/rayl0726/rayl0726.github.io@master/mylist/https2.png" alt="https1"></p>
 <p>很容易理解，再客户端和服务器段正常通信时，有个第三方的黑客将请求和响应分别截取，篡改信息，这就是中间人攻击。</p>
 <h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>为了确认双方的信息的可靠性，采用共享秘钥的方式，客户端和服务器端都持有一个秘钥用来解密信息，但是新的问题又出现了，如何传递这个秘钥呢？因为中间人攻击的存在，直接传递肯定秘钥会被截取，这样还是没有任何意义。所以还有一种加密方式：非对称加密（RSA）。</p>
-<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>这种方式有两个秘钥，公钥和私钥，公钥用来加密，私钥用来解密，公钥可以分发给所有客户，但是一次性分发到所有的客户端是不现实的，所以还是要由客户端请求获取公钥的方式，这时就又会出现中间人攻击了，如图：<br><img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/https3.jpg?raw=true" alt="https2"></p>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>这种方式有两个秘钥，公钥和私钥，公钥用来加密，私钥用来解密，公钥可以分发给所有客户，但是一次性分发到所有的客户端是不现实的，所以还是要由客户端请求获取公钥的方式，这时就又会出现中间人攻击了，如图：<br><img src="https://cdn.jsdelivr.net/gh/rayl0726/rayl0726.github.io@master/mylist/https3.png" alt="https2"></p>
 <p>正常通信是上面的部分，但是一旦出现中间人，他自己也有一套公钥和私钥，客户端请求很可能得到假的公钥，以后的通信就变成和中间人的通信了。这样还是有问题，怎样解决公钥传递的问题呢？，这时候就又出现了第三方的认证机构CA。</p>
 <h2 id="第三方认证机构CA"><a href="#第三方认证机构CA" class="headerlink" title="第三方认证机构CA"></a>第三方认证机构CA</h2><p>先介绍两个相关概念：数字签名和数字证书。</p>
 <h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名　"></a>数字签名　</h3><p>把消息进行hash，用私钥加密该hash，把hash附在发送的消息后；接收方收到后用公钥解密得到消息和hash,把收到的消息hash，然后和收到的hash对比，一致则成功。</p>
 <h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>当要验证数字签名的时候要用到公钥，这个公钥如何保证安全呢？这里要用到数字证书，它其实就是把公钥数字签名，保证公钥的安全。</p>
 <p>数字证书内容包括：包含公钥，公钥的数字签名，公钥持有者信息，有效日期等信息。那么如何生成证书呢？</p>
 <p>服务器把公钥1交给CA，CA也有自己的公钥2和私钥2，而他的公钥2是内嵌在浏览器或操作系统中的.他用自己的私钥2加密传递的公钥1生成数字签名，再把公钥1和其他信息生成证书，发送到客户端；客户端用公钥2解密后获取公钥1和公钥1的数字签名，利用数字签名的一套逻辑解密对比，确认证书，也就确认了公钥1的可靠性。</p>
-<h1 id="HTTPS的工作流程"><a href="#HTTPS的工作流程" class="headerlink" title="HTTPS的工作流程"></a>HTTPS的工作流程</h1><p>如图：<br><img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/https1.jpg?raw=true" alt="https３"></p>
+<h1 id="HTTPS的工作流程"><a href="#HTTPS的工作流程" class="headerlink" title="HTTPS的工作流程"></a>HTTPS的工作流程</h1><p>如图：<br><img src="https://cdn.jsdelivr.net/gh/rayl0726/rayl0726.github.io@master/mylist/https1.png" alt="https３"></p>
 <p>整个工作流程其实比较清晰，CA这里用到了摘要的算法，而后面的共享秘钥采用的随机数加密，更加提高了安全性。</p>
 <h1 id="HTTPS的劣势"><a href="#HTTPS的劣势" class="headerlink" title="HTTPS的劣势"></a>HTTPS的劣势</h1><p>https确实提高了通信的安全，但是却提高了CPU和内存的消耗，尤其是RSA算法的解密，所以不可能每次通信都使用https，另外不是每次的通信都需要https这种安全的方式，所以https目前会用在一些特别的场合。</p>
 <p>而且还有数字证书的签发也是需要一大笔费用的，对于一些小型甚至个人的项目采用http通信也许性价比更高。</p>
@@ -653,7 +653,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:32:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:52:40+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 21, 2020</p>
