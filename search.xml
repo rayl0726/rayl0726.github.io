@@ -15,6 +15,8 @@
           
           <category> tech </category>
           
+          <category> java </category>
+          
       </categories>
       
       
@@ -23,6 +25,60 @@
             <tag> java </tag>
             
             <tag> concurrent </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>rabbitmq集群配置</title>
+      <link href="/2020/02/10/rabbitmq-cluster-setting/"/>
+      <url>/2020/02/10/rabbitmq-cluster-setting/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-安装erlang"><a href="#1-安装erlang" class="headerlink" title="1.安装erlang"></a>1.安装erlang</h2><p>下载erlang-21.3.8.2-1.el7.x86_64.rpm 包</p><p>rpm -ivh erlang-21.3.8.2-1.el7.x86_64.rpm</p><a id="more"></a><p>报错时可以强制安装：rpm -ivh –force erlang-21.3.8.2-1.el7.x86_64.rpm</p><p>输入erl 检测是否成功 halt().退出</p><p><a href="https://www.erlang-solutions.com/" target="_blank" rel="noopener">https://www.erlang-solutions.com/</a> 可以直接下载deb包安装</p><h2 id="2-rabbitmq"><a href="#2-rabbitmq" class="headerlink" title="2.rabbitmq"></a>2.rabbitmq</h2><p>下载rabbitmq-server-generic-unix-3.7.10.tar.xz包，注意和erlang版本的匹配</p><p>tar -xvf rabbitmq-server-generic-unix-3.7.10.tar.xz</p><p>切换到rabbitmq_server-3.7.10/sbin/   用于启动服务</p><p>调用./rabbitmq-server start 启动后，在/root 目录下找到.erlang.cookie文件， 将其复制到其他的机器，确保环境相同</p><p>启动两个节点为例：</p><p>RABBITMQ_NODE_PORT=5672 RABBITMQ_NODENAME=rabbit1 ./rabbitmq-server -detached   指定端口，名称，后台启动 来启动server</p><p>RABBITMQ_NODE_PORT=5672 RABBITMQ_NODENAME=rabbit2 ./rabbitmq-server -detached   指定端口，名称，后台启动 来启动server</p><p>在rabbit2上执行</p><p>./rabbitmqctl  -n rabbit2 stop_app</p><p>./rabbitmqctl  -n rabbit2 reset</p><p>./rabbitmqctl  -n rabbit2 join_cluster rabbit1@node6v (node名称在/etc/hosts中指定域名的映射)</p><p>./rabbitmqctl -n rabbit2 start_app</p><p>./rabbitmqctl-n rabbit1 cluster_status 查看集群状态</p><p>设置策略</p><p>/rabbitmqctl  set_policy mypolicy “^” ‘{“ha-mode”:”all”,”ha-sync-mode”:”automatic”}’</p><p>添加账户</p><p>./rabbitmqctl -n rabbit1 add_user xxx xxxxxx</p><p>./rabbitmqctl -n rabbit1 set_permissions -p “/“ xxx “.*” “.*” “.*”</p><p>./rabbitmqctl -n rabbit1 set_user_tags tom administrator</p><p>启动插件</p><p>./rabbitmq-plugins -n rabbit1 enable rabbitmq_management</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tech </category>
+          
+          <category> env </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rabbitmq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>redis集群配置</title>
+      <link href="/2019/12/25/redis-cluster-setting/"/>
+      <url>/2019/12/25/redis-cluster-setting/</url>
+      
+        <content type="html"><![CDATA[<p>redis 安装：  下载 解压文件，进入文件夹 make install </p><a id="more"></a><p>redis 集群配置： </p><p>复制多份 redis.conf文件， 集群配置，修改如下信息</p><p>port 9100</p><p>cluster-enabled yes</p><p>cluster-config-file nodes-9100.conf</p><p>启动多个实例脚本如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">cd &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;src</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9100&#x2F;redis.conf  &amp;</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9101&#x2F;redis.conf  &amp;</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9102&#x2F;redis.conf  &amp;</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9103&#x2F;redis.conf  &amp;</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9104&#x2F;redis.conf  &amp;</span><br><span class="line">redis-server &#x2F;home&#x2F;xxxxxx&#x2F;SoftWare&#x2F;redis-5.0.3&#x2F;9105&#x2F;redis.conf  &amp;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> tech </category>
+          
+          <category> env </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> redis </tag>
             
         </tags>
       
@@ -41,6 +97,8 @@
       <categories>
           
           <category> tech </category>
+          
+          <category> net </category>
           
       </categories>
       
@@ -66,6 +124,8 @@
       <categories>
           
           <category> tech </category>
+          
+          <category> java </category>
           
       </categories>
       
@@ -94,6 +154,8 @@
           
           <category> tech </category>
           
+          <category> java </category>
+          
       </categories>
       
       
@@ -120,6 +182,8 @@
       <categories>
           
           <category> tech </category>
+          
+          <category> net </category>
           
       </categories>
       

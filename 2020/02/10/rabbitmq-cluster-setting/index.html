@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -20,8 +16,13 @@
 
   <!-- 页面元数据 -->
   
-    <title>Hexo</title>
+    <title>rabbitmq集群配置 - Hexo</title>
   
+    <meta name="keywords" content="rabbitmq">
+  
+  
+    <meta name="description" content="1.安装erlang下载erlang-21.3.8.2-1.el7.x86_64.rpm 包
+rpm -ivh erlang-21.3.8.2-1.el7.x86_64.rpm">
   
 
   <!-- feed -->
@@ -72,72 +73,7 @@
 
 <body>
   
-  <div class="cover-wrapper">
-    
-      <cover class='cover  full'>
-        <div class='cover-body'>
-  <div class='a'>
-    
-    
-      <p class="title">ChelseaRay</p>
-    
-    
-      <p class="subtitle">lalala</p>
-    
-  </div>
-  <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="你想要什么～" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation'>
-      <ul class='cover-list-h'>
-        
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/"
-                
-                
-                id="http:rayl0726githubio">
-                <i class='fas fa-book fa-fw'></i>首页
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/archives/"
-                
-                
-                id="http:rayl0726githubioarchives">
-                <i class='fas fa-archive fa-fw'></i>博文
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/friends/"
-                
-                
-                id="http:rayl0726githubiofriends">
-                <i class='fa fa-link fa-fw'></i>友情链接
-              </a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-        <div class="scroll-down"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-      </cover>
-    
-    <div id="loading-bar-wrapper">
+  <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -561,41 +497,18 @@
 
 <script>setLoadingBarProgress(40);</script>
 
-  </div>
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper'>
       
 
 <div class='l_main'>
   
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -605,132 +518,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/06/07/java-concurrent/">
-      java并发总结
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/java/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/java</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 7, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/06/07/java-concurrent/" class="leancloud_visitors" data-flag-title="java并发总结">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-概念："><a href="#一-概念：" class="headerlink" title="一 概念："></a>一 概念：</h2><ol>
-<li><p>共享的：变量可以被多个线程访问，</p>
-</li>
-<li><p>可变的：变量在生命周期内可以发生变化，</p>
-</li>
-<li><p>原子性：复合操作保证要么都完成，要么都不完成，</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/07/java-concurrent/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
+  <h1 class="title">
     <a href="/2020/02/10/rabbitmq-cluster-setting/">
       rabbitmq集群配置
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -808,617 +600,171 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装erlang"><a href="#1-安装erlang" class="headerlink" title="1.安装erlang"></a>1.安装erlang</h2><p>下载erlang-21.3.8.2-1.el7.x86_64.rpm 包</p>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="1-安装erlang"><a href="#1-安装erlang" class="headerlink" title="1.安装erlang"></a>1.安装erlang</h2><p>下载erlang-21.3.8.2-1.el7.x86_64.rpm 包</p>
 <p>rpm -ivh erlang-21.3.8.2-1.el7.x86_64.rpm</p>
-      
-    </div>
+<a id="more"></a>
+<p>报错时可以强制安装：rpm -ivh –force erlang-21.3.8.2-1.el7.x86_64.rpm</p>
+<p>输入erl 检测是否成功 halt().退出</p>
+<p><a href="https://www.erlang-solutions.com/" target="_blank" rel="noopener">https://www.erlang-solutions.com/</a> 可以直接下载deb包安装</p>
+<h2 id="2-rabbitmq"><a href="#2-rabbitmq" class="headerlink" title="2.rabbitmq"></a>2.rabbitmq</h2><p>下载rabbitmq-server-generic-unix-3.7.10.tar.xz包，注意和erlang版本的匹配</p>
+<p>tar -xvf rabbitmq-server-generic-unix-3.7.10.tar.xz</p>
+<p>切换到rabbitmq_server-3.7.10/sbin/   用于启动服务</p>
+<p>调用./rabbitmq-server start 启动后，在/root 目录下找到.erlang.cookie文件， 将其复制到其他的机器，确保环境相同</p>
+<p>启动两个节点为例：</p>
+<p>RABBITMQ_NODE_PORT=5672 RABBITMQ_NODENAME=rabbit1 ./rabbitmq-server -detached   指定端口，名称，后台启动 来启动server</p>
+<p>RABBITMQ_NODE_PORT=5672 RABBITMQ_NODENAME=rabbit2 ./rabbitmq-server -detached   指定端口，名称，后台启动 来启动server</p>
+<p>在rabbit2上执行</p>
+<p>./rabbitmqctl  -n rabbit2 stop_app</p>
+<p>./rabbitmqctl  -n rabbit2 reset</p>
+<p>./rabbitmqctl  -n rabbit2 join_cluster rabbit1@node6v (node名称在/etc/hosts中指定域名的映射)</p>
+<p>./rabbitmqctl -n rabbit2 start_app</p>
+<p>./rabbitmqctl-n rabbit1 cluster_status 查看集群状态</p>
+<p>设置策略</p>
+<p>/rabbitmqctl  set_policy mypolicy “^” ‘{“ha-mode”:”all”,”ha-sync-mode”:”automatic”}’</p>
+<p>添加账户</p>
+<p>./rabbitmqctl -n rabbit1 add_user xxx xxxxxx</p>
+<p>./rabbitmqctl -n rabbit1 set_permissions -p “/“ xxx “.*” “.*” “.*”</p>
+<p>./rabbitmqctl -n rabbit1 set_user_tags tom administrator</p>
+<p>启动插件</p>
+<p>./rabbitmq-plugins -n rabbit1 enable rabbitmq_management</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
     
-      
-        <div class="button readmore">
-          <a href="/2020/02/10/rabbitmq-cluster-setting/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+              
+            </div>
+          
         </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2019/12/25/redis-cluster-setting/">
-      redis集群配置
-    </a>
-  </h2>
 
 
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/env/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/env</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T10:09:16+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Dec 25, 2019</p>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 21, 2020</p>
   </a>
 </div>
 
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2019/12/25/redis-cluster-setting/" class="leancloud_visitors" data-flag-title="redis集群配置">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
         
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <p>redis 安装：  下载 解压文件，进入文件夹 make install </p>
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/rabbitmq/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>rabbitmq</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
       
     </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2019/12/25/redis-cluster-setting/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
   </section>
-</article>
 
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/06/07/java-concurrent/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java并发总结</p>
+                <p class='content'>一 概念：
+共享的：变量可以被多个线程访问，
+
+可变的：变量在生命周期内可以发生变化，
+
+原子性：复合操作保证要么都完成，要么都不完成，
+
+竞态条件：不正确的执行顺序出现的不正确的执行结果，两个...</p>
+              </a>
+            
+            
+              <a class='next' href='/2019/12/25/redis-cluster-setting/'>
+                <p class='title'>redis集群配置<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>redis 安装：  下载 解压文件，进入文件夹 make install 
+
+redis 集群配置： 
+复制多份 redis.conf文件， 集群配置，修改如下信息
+port 9100
+clu...</p>
+              </a>
+            
           </div>
         
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+      </section>
+    </article>
   
 
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2018/07/01/https/">
-      https
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
   
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/net/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/net</p>
-    </a>
-  </div>
+    <!-- 显示推荐文章和评论 -->
 
 
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 1, 2018</p>
-  </a>
-</div>
 
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
       
-      <span id="/2018/07/01/https/" class="leancloud_visitors" data-flag-title="https">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <p>补习了http之后又深入的学习了https，记录一下。</p>
       
-    </div>
-    
       
-        <div class="button readmore">
-          <a href="/2018/07/01/https/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
       
-    
-  </section>
-</article>
-
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
           </div>
-        
+        </section>
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+      
+    </section>
+  </article>
+
+
   
 
 
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2018/06/08/java-collection-list/">
-      java集合(List)
-    </a>
-  </h2>
 
 
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/java/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/java</p>
-    </a>
-  </div>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 8, 2018</p>
-  </a>
-</div>
 
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2018/06/08/java-collection-list/" class="leancloud_visitors" data-flag-title="java集合(List)">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><p>List接口继承了Collection接口，List中的元素是有序，可重复的，因为List的存储结构是序列，在内存中开辟的存储空间是连续的，其空间的指针也就对应元素的索引。<br>list对于元素的相等通过equals方法判断，返回true则相等；</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2018/06/08/java-collection-list/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2018/06/06/java-collection-set/">
-      java集合(Set)
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/java/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/java</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 6, 2018</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2018/06/06/java-collection-set/" class="leancloud_visitors" data-flag-title="java集合(Set)">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h4><p>Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。<br>Set主要的实现类有两个个：HashSet，TreeSet。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2018/06/06/java-collection-set/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2018/06/06/http/">
-      http
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/net/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/net</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 6, 2018</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2018/06/06/http/" class="leancloud_visitors" data-flag-title="http">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期专门重头学习了一遍http协议，记录一下学习的心得，以及以后忘记了再来查找。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2018/06/06/http/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
+  <script>
+    window.subData = {
+      title: 'rabbitmq集群配置',
+      tools: true
+    }
+  </script>
 
 
 </div>
@@ -1430,82 +776,18 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='http://rayl0726.github.io'>
-          <img no-lazy src='https://github.com/rayl0726/rayl0726.github.io/blob/master/mylist/avatar.jpg?raw=true'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/tech/" href="/categories/tech/"
-            id="categoriestech"
-            ><div class='name'>tech</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/env/" href="/categories/tech/env/"
-            id="categoriestechenv"
-            ><div class='name'>env</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/java/" href="/categories/tech/java/"
-            id="categoriestechjava"
-            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/net/" href="/categories/tech/net/"
-            id="categoriestechnet"
-            ><div class='name'>net</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/rabbitmq/" style="font-size: 14px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装erlang"><span class="toc-text">1.安装erlang</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-rabbitmq"><span class="toc-text">2.rabbitmq</span></a></li></ol>
     </div>
   </section>
 
