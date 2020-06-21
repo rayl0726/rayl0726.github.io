@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,12 +18,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>java集合(Set) - Hexo</title>
+    <title>Tag: algorithms - Hexo</title>
   
-    <meta name="keywords" content="java,set">
-  
-  
-    <meta name="description" content="Set接口Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。Set主要的实现类有两个个：HashSet，TreeSet。">
   
 
   <!-- feed -->
@@ -502,12 +500,25 @@
     <div class='body-wrapper'>
       
 
+
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+    
       
+  <section class="post-list ">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
 
 
   <section class='meta'>
@@ -517,11 +528,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/2018/06/06/java-collection-set/">
-      java集合(Set)
+  <h2 class="title">
+    <a href="/2020/06/21/algorithms-bigNumAdd/">
+      bigNumAdd
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -544,9 +555,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tech/java/' rel="nofollow">
+    <a href='/categories/tech/algorithms/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/java</p>
+      <p>tech/algorithms</p>
     </a>
   </div>
 
@@ -557,7 +568,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 6, 2018</p>
+    <p>发布于：Jun 21, 2020</p>
   </a>
 </div>
 
@@ -569,7 +580,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2018/06/06/java-collection-set/" class="leancloud_visitors" data-flag-title="java集合(Set)">
+      <span id="/2020/06/21/algorithms-bigNumAdd/" class="leancloud_visitors" data-flag-title="bigNumAdd">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -599,181 +610,45 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          <h4 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h4><p>Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。<br>Set主要的实现类有两个个：HashSet，TreeSet。</p>
-<a id="more"></a>
-
-<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><p>打开HashSet的源码你会发现这玩意的实现就是HashMap，它拥有4种构造器：</p>
-<ol>
-<li>HashSet()：初始容量是16，加载因子是0.75；</li>
-<li>HashSet(Collection&lt;? extends E&gt; c)：构造一个包含指定Collection中的元素的新Set；</li>
-<li>HashSet(int initialCapacity, float loadFactor)：构造一个新的空Set，其底层HashMap实例具有指定的初始容量和指定的加载因子；</li>
-<li>HashSet(int initialCapacity)：构造一个新的空Set，其底层HashMa 实例具有指定的初始容量和默认的加载因子（0.75）。</li>
-</ol>
-<p>HashSet存储元素的顺序并不是按照存入时的顺序,是按照哈希值来存的，所以取数据也是按照哈希值取得，所以会出现无序的情况。<br>因为Set中不允许添加重复元素，所以对重复元素的判断是有规则的。<br>HashSet不存入重复元素的规则:</p>
-<ol>
-<li>先判断hashcode不同，则元素不重复；</li>
-<li>先判断hashcode相同，但equals返回false；这时就相当于hashmap的散列链表形式存储。</li>
-</ol>
-<h2 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h2><p>LinkedHashSet继承了Hashset，但是内部采用双链表的形式，这样保证了元素以插入的顺序保存，但是同样维护链表会导致查询时相对较慢。</p>
-<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><p>Treeset内部其实是以红黑树的形式存储元素的，也就保证了插入的元素会进行排序<br>由于它实现了Comparable接口和Comparator接口，故内部的排序有两种形式，自然排序和定制排序。同时也要求插入的元素必须实现Comparable接口。<br>Java中实现此接口的如下：</p>
-<ol>
-<li>BigDecimal，BigInteger,所有数值类型的包装类：按照数值大小排序；</li>
-<li>Character：按unicode值排序；</li>
-<li>Boolean：true大于false；</li>
-<li>String：按照字符串中字符的unicode排序；</li>
-<li>Date，Time：按照日期大小；</li>
-</ol>
-<p>4种构造器如下：</p>
-<ol>
-<li>TreeSet()：构造一个新的空Set，该Set根据其元素的自然顺序进行排序;</li>
-<li>TreeSet(Collection&lt;? extends E&gt; c) ：构造一个包含指定Collection元素的新TreeSet，它按照其元素的自然顺序进行排序;</li>
-<li>TreeSet(Comparator&lt;? super E&gt; comparator) ：构造一个新的空TreeSet，它根据指定比较器进行排序;</li>
-<li>TreeSet(SortedSet<E> s) ：构造一个与指定有序Set具有相同映射关系和相同排序的新TreeSet。</li>
-</ol>
-<p>介绍一下两种排序：</p>
-<ol>
-<li><p>自然排序（comparable）：将元素按照升序排列，也就是当treeset添加了一个元素后，会调用compareTo()方法与红黑树中的元素比较，放到合适的位置。这里对于相等元素的判断是依赖于compareTo()方法的返回值，若是0则相等；同时对于equals()方法尽量保持与compareTo()方法的返回值一致，否则会比较麻烦。</p>
-</li>
-<li><p>定制排序（comparator）：相当于自定义一个比较器，比较的规则也是自己定义，在构造TreeSet的时候就实现比较器Comparator，进而对元素进行排序。</p>
-</li>
-</ol>
-<p>因为TreeSet比HashSet有序，所以在方法中多了查找第一个，最后一个，前一个，后一个四个定位方法以及可以用来截取TreeSet的三个方法。</p>
-<p>2018-06-06</p>
-
-          
-            <div class='article_footer'>
-              
-                
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:32:22+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 21, 2020</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/set/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>set</p></a></div>
-
-
-        
+        <p>今天做了一下两个大数相加的问题，java中偷懒的话可以直接bigDecimal类使用，自己觉得还是写一下练习</p>
       
     </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/06/21/algorithms-bigNumAdd/">
+            read more <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
   </section>
+</article>
 
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/2018/06/08/java-collection-list/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java集合(List)</p>
-                <p class='content'>List接口List接口继承了Collection接口，List中的元素是有序，可重复的，因为List的存储结构是序列，在内存中开辟的存储空间是连续的，其空间的指针也就对应元素的索引。list对...</p>
-              </a>
-            
-            
-              <a class='next' href='/2018/06/06/http/'>
-                <p class='title'>http<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>近期专门重头学习了一遍http协议，记录一下学习的心得，以及以后忘记了再来查找。
-
-关键词
-MAC
-ARP
-URI
-URL
-RFC
-SSL
-TLS
-
-1.简述TCP/IP提到http就不得不提t...</p>
-              </a>
-            
           </div>
         
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
-
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      
-      
-      
-      
-      
-        <section id="comments">
-          <div id="valine_container" class="valine_thread">
-            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-          </div>
-        </section>
-      
-      
-    </section>
-  </article>
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: 'java集合(Set)',
-      tools: true
-    }
-  </script>
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
+  
+
   
     
     
@@ -797,19 +672,68 @@ TLS
   
     
     
+  
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Set接口"><span class="toc-text">Set接口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashSet"><span class="toc-text">HashSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedHashSet"><span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/tech/" href="/categories/tech/"
+            id="categoriestech"
+            ><div class='name'>tech</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/tech/algorithms/" href="/categories/tech/algorithms/"
+            id="categoriestechalgorithms"
+            ><div class='name'>algorithms</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/tech/env/" href="/categories/tech/env/"
+            id="categoriestechenv"
+            ><div class='name'>env</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/tech/java/" href="/categories/tech/java/"
+            id="categoriestechjava"
+            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/tech/net/" href="/categories/tech/net/"
+            id="categoriestechnet"
+            ><div class='name'>net</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/algorithms/" style="font-size: 14px; color: #999">algorithms</a> <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/rabbitmq/" style="font-size: 14px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a>
     </div>
   </section>
 

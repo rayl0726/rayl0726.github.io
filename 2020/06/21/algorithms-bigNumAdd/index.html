@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>java集合(Set) - Hexo</title>
+    <title>bigNumAdd - Hexo</title>
   
-    <meta name="keywords" content="java,set">
+    <meta name="keywords" content="algorithms">
   
   
-    <meta name="description" content="Set接口Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。Set主要的实现类有两个个：HashSet，TreeSet。">
+    <meta name="description" content="今天做了一下两个大数相加的问题，java中偷懒的话可以直接bigDecimal类使用，自己觉得还是写一下练习">
   
 
   <!-- feed -->
@@ -518,8 +518,8 @@
         
           
   <h1 class="title">
-    <a href="/2018/06/06/java-collection-set/">
-      java集合(Set)
+    <a href="/2020/06/21/algorithms-bigNumAdd/">
+      bigNumAdd
     </a>
   </h1>
 
@@ -544,9 +544,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tech/java/' rel="nofollow">
+    <a href='/categories/tech/algorithms/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/java</p>
+      <p>tech/algorithms</p>
     </a>
   </div>
 
@@ -557,7 +557,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 6, 2018</p>
+    <p>发布于：Jun 21, 2020</p>
   </a>
 </div>
 
@@ -569,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2018/06/06/java-collection-set/" class="leancloud_visitors" data-flag-title="java集合(Set)">
+      <span id="/2020/06/21/algorithms-bigNumAdd/" class="leancloud_visitors" data-flag-title="bigNumAdd">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -602,46 +602,37 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h4 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h4><p>Set接口继承了Collection接口，而且对于其方法基本没有做改动，换句话说Set就是Collection，只是Set中不允许添加重复元素，所以在add重复元素时会返回false。<br>Set主要的实现类有两个个：HashSet，TreeSet。</p>
+          <p>今天做了一下两个大数相加的问题，java中偷懒的话可以直接bigDecimal类使用，自己觉得还是写一下练习</p>
 <a id="more"></a>
 
-<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><p>打开HashSet的源码你会发现这玩意的实现就是HashMap，它拥有4种构造器：</p>
-<ol>
-<li>HashSet()：初始容量是16，加载因子是0.75；</li>
-<li>HashSet(Collection&lt;? extends E&gt; c)：构造一个包含指定Collection中的元素的新Set；</li>
-<li>HashSet(int initialCapacity, float loadFactor)：构造一个新的空Set，其底层HashMap实例具有指定的初始容量和指定的加载因子；</li>
-<li>HashSet(int initialCapacity)：构造一个新的空Set，其底层HashMa 实例具有指定的初始容量和默认的加载因子（0.75）。</li>
-</ol>
-<p>HashSet存储元素的顺序并不是按照存入时的顺序,是按照哈希值来存的，所以取数据也是按照哈希值取得，所以会出现无序的情况。<br>因为Set中不允许添加重复元素，所以对重复元素的判断是有规则的。<br>HashSet不存入重复元素的规则:</p>
-<ol>
-<li>先判断hashcode不同，则元素不重复；</li>
-<li>先判断hashcode相同，但equals返回false；这时就相当于hashmap的散列链表形式存储。</li>
-</ol>
-<h2 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h2><p>LinkedHashSet继承了Hashset，但是内部采用双链表的形式，这样保证了元素以插入的顺序保存，但是同样维护链表会导致查询时相对较慢。</p>
-<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><p>Treeset内部其实是以红黑树的形式存储元素的，也就保证了插入的元素会进行排序<br>由于它实现了Comparable接口和Comparator接口，故内部的排序有两种形式，自然排序和定制排序。同时也要求插入的元素必须实现Comparable接口。<br>Java中实现此接口的如下：</p>
-<ol>
-<li>BigDecimal，BigInteger,所有数值类型的包装类：按照数值大小排序；</li>
-<li>Character：按unicode值排序；</li>
-<li>Boolean：true大于false；</li>
-<li>String：按照字符串中字符的unicode排序；</li>
-<li>Date，Time：按照日期大小；</li>
-</ol>
-<p>4种构造器如下：</p>
-<ol>
-<li>TreeSet()：构造一个新的空Set，该Set根据其元素的自然顺序进行排序;</li>
-<li>TreeSet(Collection&lt;? extends E&gt; c) ：构造一个包含指定Collection元素的新TreeSet，它按照其元素的自然顺序进行排序;</li>
-<li>TreeSet(Comparator&lt;? super E&gt; comparator) ：构造一个新的空TreeSet，它根据指定比较器进行排序;</li>
-<li>TreeSet(SortedSet<E> s) ：构造一个与指定有序Set具有相同映射关系和相同排序的新TreeSet。</li>
-</ol>
-<p>介绍一下两种排序：</p>
-<ol>
-<li><p>自然排序（comparable）：将元素按照升序排列，也就是当treeset添加了一个元素后，会调用compareTo()方法与红黑树中的元素比较，放到合适的位置。这里对于相等元素的判断是依赖于compareTo()方法的返回值，若是0则相等；同时对于equals()方法尽量保持与compareTo()方法的返回值一致，否则会比较麻烦。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigNumAdd2</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">       BigDecimal decimal1 = <span class="keyword">new</span> BigDecimal(num1);</span><br><span class="line">       BigDecimal decimal2 = <span class="keyword">new</span> BigDecimal(num2);</span><br><span class="line"></span><br><span class="line">       BigDecimal result = decimal1.add(decimal2);</span><br><span class="line">       <span class="keyword">return</span> result.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为是大数所以基本的long类型就存不下了，所以考虑字符串类型；</p>
+<p>相加无非就是把个位，十位…加起来，所以用分解字符串的方法一位一位取出来相加，注意几个关键点：</p>
+<ul>
+<li>相加的时候要把数字的字符串倒序排列一下，因为是从个位开始，这里我用的是stringBuilder的reverse()方法；</li>
+<li>过十进位，最高位可能会多一位，所以存储结果的字符串长度要多设置一位；</li>
+<li>两个数的长度要注意会不一样，当循环超过较小的那个数的指针时要主要不要越界</li>
+</ul>
+<p>上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigNumAdd1</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//翻转两个字符串</span></span><br><span class="line">       String chars1 = <span class="keyword">new</span> StringBuilder(num1).reverse().toString();</span><br><span class="line">       String chars2 = <span class="keyword">new</span> StringBuilder(num2).reverse().toString();</span><br><span class="line">       <span class="comment">//获取最大的字符串长度</span></span><br><span class="line">       <span class="keyword">int</span> maxlength = Math.max(chars1.length(), chars2.length());</span><br><span class="line">       StringBuilder result = <span class="keyword">new</span> StringBuilder(maxlength + <span class="number">1</span>);</span><br><span class="line">       <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxlength; i++) &#123;</span><br><span class="line">           <span class="keyword">int</span> tempNum1 = chars1.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars1.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">           <span class="keyword">int</span> tempNum2 = chars2.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars2.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">           <span class="keyword">int</span> tempNum = tempNum1 + tempNum2 + carry;</span><br><span class="line">           <span class="keyword">int</span> currentNum = tempNum % <span class="number">10</span>;</span><br><span class="line">           carry = tempNum / <span class="number">10</span>;</span><br><span class="line">           result.append(currentNum);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>(carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">           result.append(carry);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> result.reverse().toString();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 基本可以完成运算，但是这是一种只考虑整数的情况，如果是小数的情况其实也差不多一样，我想的方法是根据小数点拆分成两个字符串，整数部分同上，小数部分计算要注意：</p>
+<ul>
+<li><p>相加的时候不用倒序，直接加；</p>
 </li>
-<li><p>定制排序（comparator）：相当于自定义一个比较器，比较的规则也是自己定义，在构造TreeSet的时候就实现比较器Comparator，进而对元素进行排序。</p>
+<li><p>进位的问题要补到整数部分；</p>
 </li>
-</ol>
-<p>因为TreeSet比HashSet有序，所以在方法中多了查找第一个，最后一个，前一个，后一个四个定位方法以及可以用来截取TreeSet的三个方法。</p>
-<p>2018-06-06</p>
+<li><p>代码写的时候要注意边界问题；</p>
+<p>上代码(我写的比较挫):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigDecimalAdd</span><span class="params">(String num1, String num2)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">      String[] split1 = num1.split(<span class="string">"\\."</span>);</span><br><span class="line">      String[] split2 = num2.split(<span class="string">"\\."</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(split1.length &gt; <span class="number">2</span> || split2.length &gt; <span class="number">2</span>) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"params wrong"</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//计算小数部分</span></span><br><span class="line">      String float1 = <span class="keyword">null</span>;</span><br><span class="line">      String float2 = <span class="keyword">null</span>;</span><br><span class="line">      <span class="keyword">if</span>(split1.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">          float1 = split1[<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(split2.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">          float2 = split2[<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//获取最大的字符串长度</span></span><br><span class="line">      <span class="keyword">int</span> maxlength = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span>(float1 == <span class="keyword">null</span> &amp;&amp; float2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(float1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">          maxlength = float2.length();</span><br><span class="line">          float1 = <span class="string">""</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(float2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">          maxlength = float1.length();</span><br><span class="line">          float2 = <span class="string">""</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          maxlength = Math.max(float1.length(), float2.length());</span><br><span class="line">      &#125;</span><br><span class="line">      StringBuilder floatResult = <span class="keyword">new</span> StringBuilder(maxlength + <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">int</span> floatCarry = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span>(maxlength &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxlength; i++) &#123;</span><br><span class="line">              <span class="keyword">int</span> tempNum1 = float1.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (float1.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">              <span class="keyword">int</span> tempNum2 = float2.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (float2.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">              <span class="keyword">int</span> tempNum = tempNum1 + tempNum2 + floatCarry;</span><br><span class="line">              <span class="keyword">int</span> currentNum = tempNum % <span class="number">10</span>;</span><br><span class="line">              floatCarry = tempNum / <span class="number">10</span>;</span><br><span class="line">              floatResult.append(currentNum);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      String decimalResult = floatResult.toString();</span><br><span class="line">      String integerResult = bigIntegerAdd(split1[<span class="number">0</span>], split2[<span class="number">0</span>], floatCarry);</span><br><span class="line">      <span class="keyword">return</span> decimalResult.length() &gt; <span class="number">0</span> ? integerResult + <span class="string">"."</span> + decimalResult : integerResult;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中bigIntegerAdd（）方法是计算整数部分，并把小数部分的进位加了进去:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigIntegerAdd</span><span class="params">(String num1, String num2, <span class="keyword">int</span> floatCarry)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//翻转两个字符串</span></span><br><span class="line">      String chars1 = <span class="keyword">new</span> StringBuilder(num1).reverse().toString();</span><br><span class="line">      String chars2 = <span class="keyword">new</span> StringBuilder(num2).reverse().toString();</span><br><span class="line">      <span class="comment">//获取最大的字符串长度</span></span><br><span class="line">      <span class="keyword">int</span> maxlength = Math.max(chars1.length(), chars2.length());</span><br><span class="line">      StringBuilder result = <span class="keyword">new</span> StringBuilder(maxlength + <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxlength; i++) &#123;</span><br><span class="line">          <span class="keyword">int</span> tempNum1 = chars1.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars1.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">          <span class="keyword">int</span> tempNum2 = chars2.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars2.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">          <span class="keyword">int</span> tempNum = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; floatCarry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">              tempNum = tempNum1 + tempNum2 + carry + floatCarry;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              tempNum = tempNum1 + tempNum2 + carry;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">int</span> currentNum = tempNum % <span class="number">10</span>;</span><br><span class="line">          carry = tempNum / <span class="number">10</span>;</span><br><span class="line">          result.append(currentNum);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          result.append(carry);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> result.reverse().toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然还有其他的解法，有新的想法和对我代码提建议的可以留言~~</p>
+</li>
+</ul>
 
           
             <div class='article_footer'>
@@ -676,7 +667,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:32:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:32:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 21, 2020</p>
@@ -688,7 +679,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/set/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>set</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/algorithms/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>algorithms</p></a></div>
 
 
         
@@ -701,26 +692,17 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2018/06/08/java-collection-list/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java集合(List)</p>
-                <p class='content'>List接口List接口继承了Collection接口，List中的元素是有序，可重复的，因为List的存储结构是序列，在内存中开辟的存储空间是连续的，其空间的指针也就对应元素的索引。list对...</p>
-              </a>
             
-            
-              <a class='next' href='/2018/06/06/http/'>
-                <p class='title'>http<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>近期专门重头学习了一遍http协议，记录一下学习的心得，以及以后忘记了再来查找。
+              <a class='next' href='/2020/06/07/java-concurrent/'>
+                <p class='title'>java并发总结<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>一 概念：
+共享的：变量可以被多个线程访问，
 
-关键词
-MAC
-ARP
-URI
-URL
-RFC
-SSL
-TLS
+可变的：变量在生命周期内可以发生变化，
 
-1.简述TCP/IP提到http就不得不提t...</p>
+原子性：复合操作保证要么都完成，要么都不完成，
+
+竞态条件：不正确的执行顺序出现的不正确的执行结果，两个...</p>
               </a>
             
           </div>
@@ -765,7 +747,7 @@ TLS
 
   <script>
     window.subData = {
-      title: 'java集合(Set)',
+      title: 'bigNumAdd',
       tools: true
     }
   </script>
@@ -798,20 +780,6 @@ TLS
     
     
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Set接口"><span class="toc-text">Set接口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashSet"><span class="toc-text">HashSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedHashSet"><span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a>
-    </div>
-  </section>
 
 
   
