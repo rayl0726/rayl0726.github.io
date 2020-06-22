@@ -16,7 +16,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>bigNumAdd - Hexo</title>
+    <title>bigNumAdd,Sub - Hexo</title>
   
     <meta name="keywords" content="algorithms">
   
@@ -519,7 +519,7 @@
           
   <h1 class="title">
     <a href="/2020/06/21/algorithms-bigNumAdd/">
-      bigNumAdd
+      bigNumAdd,Sub
     </a>
   </h1>
 
@@ -569,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2020/06/21/algorithms-bigNumAdd/" class="leancloud_visitors" data-flag-title="bigNumAdd">
+      <span id="/2020/06/21/algorithms-bigNumAdd/" class="leancloud_visitors" data-flag-title="bigNumAdd,Sub">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -607,7 +607,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigNumAdd2</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">       BigDecimal decimal1 = <span class="keyword">new</span> BigDecimal(num1);</span><br><span class="line">       BigDecimal decimal2 = <span class="keyword">new</span> BigDecimal(num2);</span><br><span class="line"></span><br><span class="line">       BigDecimal result = decimal1.add(decimal2);</span><br><span class="line">       <span class="keyword">return</span> result.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>因为是大数所以基本的long类型就存不下了，所以考虑字符串类型；</p>
+<h2 id="相加"><a href="#相加" class="headerlink" title="相加"></a>相加</h2><p>因为是大数所以基本的long类型就存不下了，所以考虑字符串类型；</p>
 <p>相加无非就是把个位，十位…加起来，所以用分解字符串的方法一位一位取出来相加，注意几个关键点：</p>
 <ul>
 <li>相加的时候要把数字的字符串倒序排列一下，因为是从个位开始，这里我用的是stringBuilder的reverse()方法；</li>
@@ -630,9 +630,11 @@
 <p>其中bigIntegerAdd（）方法是计算整数部分，并把小数部分的进位加了进去:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigIntegerAdd</span><span class="params">(String num1, String num2, <span class="keyword">int</span> floatCarry)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//翻转两个字符串</span></span><br><span class="line">      String chars1 = <span class="keyword">new</span> StringBuilder(num1).reverse().toString();</span><br><span class="line">      String chars2 = <span class="keyword">new</span> StringBuilder(num2).reverse().toString();</span><br><span class="line">      <span class="comment">//获取最大的字符串长度</span></span><br><span class="line">      <span class="keyword">int</span> maxlength = Math.max(chars1.length(), chars2.length());</span><br><span class="line">      StringBuilder result = <span class="keyword">new</span> StringBuilder(maxlength + <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxlength; i++) &#123;</span><br><span class="line">          <span class="keyword">int</span> tempNum1 = chars1.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars1.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">          <span class="keyword">int</span> tempNum2 = chars2.length() - <span class="number">1</span> &lt; i ? <span class="number">0</span> :  (chars2.charAt(i) - <span class="string">'0'</span>);</span><br><span class="line">          <span class="keyword">int</span> tempNum = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; floatCarry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">              tempNum = tempNum1 + tempNum2 + carry + floatCarry;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              tempNum = tempNum1 + tempNum2 + carry;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">int</span> currentNum = tempNum % <span class="number">10</span>;</span><br><span class="line">          carry = tempNum / <span class="number">10</span>;</span><br><span class="line">          result.append(currentNum);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          result.append(carry);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> result.reverse().toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<p>当然还有其他的解法，有新的想法和对我代码提建议的可以留言~~</p>
 </li>
 </ul>
+<h2 id="相减"><a href="#相减" class="headerlink" title="相减"></a>相减</h2><p>补充一下相减的方法（整数）：<br>写的比较啰嗦，一共有3处循环，一上来我先判断了两个数的大小，保证大数在前，目的是为了能方便后面的运算，最后一次是为了去掉多余的0以及输出为字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">bigNumSub</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len1 = num1.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> len2 = num2.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">boolean</span> minus = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(len1 &lt; len2 || num1.compareTo(num2) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            String tempNum = num1;</span><br><span class="line">            num1 = num2;</span><br><span class="line">            num2 = tempNum;</span><br><span class="line">            <span class="keyword">int</span> tempLen = len1;</span><br><span class="line">            len1 = len2;</span><br><span class="line">            len2 = tempLen;</span><br><span class="line">            minus = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxLength = Math.max(len1, len2);</span><br><span class="line">        <span class="comment">//考虑存在负数的情况</span></span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[maxLength + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> k = maxLength;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(len1 &gt;= <span class="number">0</span> || len2 &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">            num += len1 &gt;= <span class="number">0</span> ? num1.charAt(len1) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            num -= len2 &gt;= <span class="number">0</span> ? num2.charAt(len2) - <span class="string">'0'</span> : <span class="number">0</span>;</span><br><span class="line">            num = num - carry;</span><br><span class="line">            res[k--] = num % <span class="number">10</span>;</span><br><span class="line">            carry = num / <span class="number">10</span> == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">            len2--;</span><br><span class="line">            len1--;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder result = <span class="keyword">new</span> StringBuilder(maxLength + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(minus) &#123;</span><br><span class="line">            result.append(<span class="string">"-"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span> judge = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> temp : res) &#123;</span><br><span class="line">            <span class="keyword">if</span>(judge) &#123;</span><br><span class="line">                <span class="keyword">if</span>(temp != <span class="number">0</span>) &#123;</span><br><span class="line">                    result.append(temp);</span><br><span class="line">                    judge = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result.append(temp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 当然还有其他的解法，有新的想法和对我代码提建议的可以留言~~</p>
 
           
             <div class='article_footer'>
@@ -667,10 +669,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-21T17:32:07+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-22T13:43:50+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 21, 2020</p>
+    <p>更新于：Jun 22, 2020</p>
   </a>
 </div>
 
@@ -747,7 +749,7 @@
 
   <script>
     window.subData = {
-      title: 'bigNumAdd',
+      title: 'bigNumAdd,Sub',
       tools: true
     }
   </script>
@@ -780,6 +782,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#相加"><span class="toc-text">相加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相减"><span class="toc-text">相减</span></a></li></ol>
+    </div>
+  </section>
 
 
   
