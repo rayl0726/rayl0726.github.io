@@ -605,16 +605,11 @@
           <p>记录一些发现的问题吧</p>
 <a id="more"></a>
 
-<p>#　1.compareTo方法的问题：</p>
+<p>#　1.compareTo方法的问题</p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常</p>
 <blockquote>
-<p>comparison method violates its general contract!<br>经过搜索这个错误主要是由于compareTo方法返回的比较逻辑不能自恰导致，自恰也就是公式的返回要满足如下条件：</p>
+<p>comparison method violates its general contract!<br>经过搜索这个错误主要是由于compareTo方法返回的比较逻辑不能自恰导致，自恰也就是公式的返回要满足如下条件：<br><strong>1. 自反性：x，y 的比较结果和 y，x 的比较结果相反。</strong><br><strong>2. 传递性：x&gt;y,y&gt;z,则 x&gt;z。</strong><br><strong>3. 对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同</strong></p>
 </blockquote>
-<ol>
-<li>自反性：x，y 的比较结果和 y，x 的比较结果相反。</li>
-<li>传递性：x&gt;y,y&gt;z,则 x&gt;z。</li>
-<li>对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同</li>
-</ol>
 <p>看到这三个条件后我就明白了我的问题，简化一下我的代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(ImageDtoSort obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj.result &gt;= <span class="keyword">this</span>.result)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个就很明显了，前者&gt;=后者， 那后者和前者比的时候一定是&lt;,但是当两个相等的情况下，这个逻辑会都返回1，很明显不符合自反性。</p>
@@ -640,15 +635,11 @@
 <p><strong>If the second and third operands have the same type (which may be the null type), then that is the type of the conditional expression.</strong></p>
 <p><strong>If one of the second and third operands is of primitive type T, and the type of the other is the result of applying boxing conversion (§5.1.7) to T, then the type of the conditional expression is T.</strong></p>
 <p><strong>If one of the second and third operands is of the null type and the type of the other is a reference type, then the type of the conditional expression is that reference type.</strong></p>
-</blockquote>
-<blockquote>
 <p>Otherwise, if the second and third operands have types that are convertible (§5.1.8) to numeric types, then there are several cases:</p>
 <p>If one of the operands is of type byte or Byte and the other is of type short or Short, then the type of the conditional expression is short.</p>
 <p>If one of the operands is of type T where T is byte, short, or char, and the other operand is a constant expression (§15.28) of type int whose value is representable in type T, then the type of the conditional expression is T.</p>
 <p>If one of the operands is of type T, where T is Byte, Short, or Character, and the other operand is a constant expression (§15.28) of type int whose value is representable in the type U which is the result of applying unboxing conversion to T, then the type of the conditional expression is U.</p>
 <p>Otherwise, binary numeric promotion (§5.6.2) is applied to the operand types, and the type of the conditional expression is the promoted type of the second and third operands.</p>
-</blockquote>
-<blockquote>
 <p>Note that binary numeric promotion performs value set conversion (§5.1.13) and may perform unboxing conversion (§5.1.8).</p>
 <p>Otherwise, the second and third operands are of types S1 and S2 respectively. Let T1 be the type that results from applying boxing conversion to S1, and let T2 be the type that results from applying boxing conversion to S2.</p>
 <p>The type of the conditional expression is the result of applying capture conversion (§5.1.10) to lub(T1, T2) (§15.12.2.7).</p>
@@ -695,7 +686,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:49:11+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:52:04+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jul 4, 2020</p>
