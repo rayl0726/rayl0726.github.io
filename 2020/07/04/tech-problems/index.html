@@ -604,10 +604,7 @@
           
           <p>记录一些发现的问题吧</p>
 <a id="more"></a>
-
-
-<p>#1.compareTo方法的问题</p>
-<p>问题描述:</p>
+<h2 id="1-compareTo方法的问题"><a href="#1-compareTo方法的问题" class="headerlink" title="1.compareTo方法的问题"></a>1.compareTo方法的问题</h2><p>问题描述:</p>
 <p>由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常</p>
 <blockquote>
 <p>comparison method violates its general contract!</p>
@@ -623,7 +620,7 @@
 <p>这个就很明显了，前者&gt;=后者， 那后者和前者比的时候一定是&lt;,但是当两个相等的情况下，这个逻辑会都返回1，很明显不符合自反性。</p>
 <p>还有就是整个比较过程其实缺少对对象是否为空的判断，我们如果使用compare方法则可以优化整个比较过程：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Comparator&lt;ImageDtoSort&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ImageDtoSort o1, ImageDtoSort o2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(o1 == <span class="keyword">null</span> &amp;&amp; o2 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o1 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o2 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o1.result &gt; o2.result) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o2.result &gt; o1.result) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-三目运算符null报错的问题"><a href="#2-三目运算符null报错的问题" class="headerlink" title="2.三目运算符null报错的问题"></a>2.三目运算符null报错的问题</h1><p>举个例子：</p>
+<h2 id="2-三目运算符null报错的问题"><a href="#2-三目运算符null报错的问题" class="headerlink" title="2.三目运算符null报错的问题"></a>2.三目运算符null报错的问题</h2><p>举个例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Integer a = <span class="keyword">null</span>;</span><br><span class="line">       System.out.println(<span class="keyword">true</span> ? a : <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>上面这段代码会抛出空指针异常,而下面这段就不会异常</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Integer a = <span class="keyword">null</span>;</span><br><span class="line">       Integer b = <span class="number">1</span>;</span><br><span class="line">       System.out.println(<span class="keyword">true</span> ? a : b);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -694,7 +691,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:56:53+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:58:47+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jul 4, 2020</p>
@@ -814,7 +811,7 @@
 
 
     <div class='content'>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-compareTo方法的问题"><span class="toc-text">1.compareTo方法的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-三目运算符null报错的问题"><span class="toc-text">2.三目运算符null报错的问题</span></a></li></ol>
     </div>
   </section>
 
