@@ -605,11 +605,19 @@
           <p>记录一些发现的问题吧</p>
 <a id="more"></a>
 
-<p>#　1.compareTo方法的问题</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常</p>
+
+<p>#1.compareTo方法的问题</p>
+<p>问题描述:</p>
+<p>由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常</p>
 <blockquote>
-<p>comparison method violates its general contract!<br>经过搜索这个错误主要是由于compareTo方法返回的比较逻辑不能自恰导致，自恰也就是公式的返回要满足如下条件：<br><strong>1. 自反性：x，y 的比较结果和 y，x 的比较结果相反。</strong><br><strong>2. 传递性：x&gt;y,y&gt;z,则 x&gt;z。</strong><br><strong>3. 对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同</strong></p>
+<p>comparison method violates its general contract!</p>
 </blockquote>
+<p>经过搜索这个错误主要是由于compareTo方法返回的比较逻辑不能自恰导致，自恰也就是公式的返回要满足如下条件：</p>
+<ol>
+<li><strong>自反性：x，y 的比较结果和 y，x 的比较结果相反。</strong></li>
+<li><strong>传递性：x&gt;y,y&gt;z,则 x&gt;z。</strong></li>
+<li><strong>对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同</strong></li>
+</ol>
 <p>看到这三个条件后我就明白了我的问题，简化一下我的代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(ImageDtoSort obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj.result &gt;= <span class="keyword">this</span>.result)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个就很明显了，前者&gt;=后者， 那后者和前者比的时候一定是&lt;,但是当两个相等的情况下，这个逻辑会都返回1，很明显不符合自反性。</p>
@@ -686,7 +694,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:52:04+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:56:53+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jul 4, 2020</p>
@@ -806,7 +814,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li></ol>
+      
     </div>
   </section>
 
