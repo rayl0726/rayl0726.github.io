@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Archive: 2020/2 - ChelseaRay</title>
+    <title>问题&#34;友人帐&#34;（持续更） - ChelseaRay</title>
   
+    <meta name="keywords" content="problems">
+  
+  
+    <meta name="description" content="记录一些发现的问题吧">
   
 
   <!-- feed -->
@@ -70,71 +72,7 @@
 
 <body>
   
-  <div class="cover-wrapper">
-    
-      <cover class='cover  half'>
-        <div class='cover-body'>
-  <div class='a'>
-    
-    
-      <p class="title">ChelseaRay</p>
-    
-    
-      <p class="subtitle">lalala</p>
-    
-  </div>
-  <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="你想要什么～" />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation'>
-      <ul class='cover-list-h'>
-        
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/"
-                
-                
-                id="http:rayl0726githubio">
-                <i class='fas fa-book fa-fw'></i>首页
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/archives/"
-                
-                
-                id="http:rayl0726githubioarchives">
-                <i class='fas fa-archive fa-fw'></i>博文
-              </a>
-            </li>
-          
-            <li>
-              <a class="nav home"
-                href="http://rayl0726.github.io/friends/"
-                
-                
-                id="http:rayl0726githubiofriends">
-                <i class='fa fa-link fa-fw'></i>友情链接
-              </a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-      </cover>
-    
-    <div id="loading-bar-wrapper">
+  <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -558,30 +496,18 @@
 
 <script>setLoadingBarProgress(40);</script>
 
-  </div>
 
 
-  <div class="l_body">
+  <div class="l_body nocover">
     <div class='body-wrapper'>
       
 
 <div class='l_main'>
-	
-		
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -591,11 +517,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/02/10/rabbitmq-cluster-setting/">
-      rabbitmq集群配置
+  <h1 class="title">
+    <a href="/2020/07/04/tech-problems/">
+      问题"友人帐"（持续更）
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -618,9 +544,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tech/env/' rel="nofollow">
+    <a href='/categories/tech/problems/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/env</p>
+      <p>tech/problems</p>
     </a>
   </div>
 
@@ -631,7 +557,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Feb 10, 2020</p>
+    <p>发布于：Jul 4, 2020</p>
   </a>
 </div>
 
@@ -643,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2020/02/10/rabbitmq-cluster-setting/" class="leancloud_visitors" data-flag-title="rabbitmq集群配置">
+      <span id="/2020/07/04/tech-problems/" class="leancloud_visitors" data-flag-title="问题"友人帐"（持续更）">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -673,45 +599,187 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装erlang"><a href="#1-安装erlang" class="headerlink" title="1.安装erlang"></a>1.安装erlang</h2><p>下载erlang-21.3.8.2-1.el7.x86_64.rpm 包</p>
-<p>rpm -ivh erlang-21.3.8.2-1.el7.x86_64.rpm</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/10/rabbitmq-cluster-setting/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>记录一些发现的问题吧</p>
+<a id="more"></a>
 
-          </div>
+<p>#　1.compareTo方法的问题：</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常</p>
+<blockquote>
+<p>comparison method violates its general contract!<br>经过搜索这个错误主要是由于compareTo方法返回的比较逻辑不能自恰导致，自恰也就是公式的返回要满足如下条件：</p>
+</blockquote>
+<ol>
+<li>自反性：x，y 的比较结果和 y，x 的比较结果相反。</li>
+<li>传递性：x&gt;y,y&gt;z,则 x&gt;z。</li>
+<li>对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同</li>
+</ol>
+<p>看到这三个条件后我就明白了我的问题，简化一下我的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(ImageDtoSort obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj.result &gt;= <span class="keyword">this</span>.result)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个就很明显了，前者&gt;=后者， 那后者和前者比的时候一定是&lt;,但是当两个相等的情况下，这个逻辑会都返回1，很明显不符合自反性。</p>
+<p>还有就是整个比较过程其实缺少对对象是否为空的判断，我们如果使用compare方法则可以优化整个比较过程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Comparator&lt;ImageDtoSort&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ImageDtoSort o1, ImageDtoSort o2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(o1 == <span class="keyword">null</span> &amp;&amp; o2 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o1 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o2 == <span class="keyword">null</span>) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o1.result &gt; o2.result) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span>(o2.result &gt; o1.result) &#123;  </span><br><span class="line">    		<span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-三目运算符null报错的问题"><a href="#2-三目运算符null报错的问题" class="headerlink" title="2.三目运算符null报错的问题"></a>2.三目运算符null报错的问题</h1><p>举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Integer a = <span class="keyword">null</span>;</span><br><span class="line">       System.out.println(<span class="keyword">true</span> ? a : <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>上面这段代码会抛出空指针异常,而下面这段就不会异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Integer a = <span class="keyword">null</span>;</span><br><span class="line">       Integer b = <span class="number">1</span>;</span><br><span class="line">       System.out.println(<span class="keyword">true</span> ? a : b);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因简单来说是三目运算符进行自动拆箱导致，详细参考如下（java官方文档）：</p>
+<blockquote>
+<p>15.25. Conditional Operator ? :<br>The conditional operator ? : uses the boolean value of one expression to decide which of two other expressions should be evaluated.</p>
+<blockquote>
+<p>ConditionalExpression:<br>  ConditionalOrExpression<br>  ConditionalOrExpression ? Expression : ConditionalExpression</p>
+</blockquote>
+<p>The conditional operator is syntactically right-associative (it groups right-to-left). Thus, a?b:c?d:e?f:g means the same as a?b:(c?d:(e?f:g)).</p>
+<p>The conditional operator has three operand expressions. ? appears between the first and second expressions, and : appears between the second and third expressions.</p>
+<p>The first expression must be of type boolean or Boolean, or a compile-time error occurs.</p>
+<p>It is a compile-time error for either the second or the third operand expression to be an invocation of a void method.</p>
+<p>In fact, by the grammar of expression statements (§14.8), it is not permitted for a conditional expression to appear in any context where an invocation of a void method could appear.</p>
+<p>The type of a conditional expression is determined as follows:</p>
+<p><strong>If the second and third operands have the same type (which may be the null type), then that is the type of the conditional expression.</strong></p>
+<p><strong>If one of the second and third operands is of primitive type T, and the type of the other is the result of applying boxing conversion (§5.1.7) to T, then the type of the conditional expression is T.</strong></p>
+<p><strong>If one of the second and third operands is of the null type and the type of the other is a reference type, then the type of the conditional expression is that reference type.</strong></p>
+</blockquote>
+<blockquote>
+<p>Otherwise, if the second and third operands have types that are convertible (§5.1.8) to numeric types, then there are several cases:</p>
+<p>If one of the operands is of type byte or Byte and the other is of type short or Short, then the type of the conditional expression is short.</p>
+<p>If one of the operands is of type T where T is byte, short, or char, and the other operand is a constant expression (§15.28) of type int whose value is representable in type T, then the type of the conditional expression is T.</p>
+<p>If one of the operands is of type T, where T is Byte, Short, or Character, and the other operand is a constant expression (§15.28) of type int whose value is representable in the type U which is the result of applying unboxing conversion to T, then the type of the conditional expression is U.</p>
+<p>Otherwise, binary numeric promotion (§5.6.2) is applied to the operand types, and the type of the conditional expression is the promoted type of the second and third operands.</p>
+</blockquote>
+<blockquote>
+<p>Note that binary numeric promotion performs value set conversion (§5.1.13) and may perform unboxing conversion (§5.1.8).</p>
+<p>Otherwise, the second and third operands are of types S1 and S2 respectively. Let T1 be the type that results from applying boxing conversion to S1, and let T2 be the type that results from applying boxing conversion to S2.</p>
+<p>The type of the conditional expression is the result of applying capture conversion (§5.1.10) to lub(T1, T2) (§15.12.2.7).</p>
+<p>At run time, the first operand expression of the conditional expression is evaluated first. If necessary, unboxing conversion is performed on the result.</p>
+<p>The resulting boolean value is then used to choose either the second or the third operand expression:</p>
+<p>If the value of the first operand is true, then the second operand expression is chosen.</p>
+<p>If the value of the first operand is false, then the third operand expression is chosen.</p>
+<p>The chosen operand expression is then evaluated and the resulting value is converted to the type of the conditional expression as determined by the rules stated above.</p>
+<p>This conversion may include boxing (§5.1.7) or unboxing (§5.1.8) conversion.</p>
+<p>The operand expression not chosen is not evaluated for that particular evaluation of the conditional expression.</p>
+</blockquote>
+<p>其中重点看The type of a conditional expression is determined as follows:下面说的几种情况，<strong>其中一种是如果第二个和第三个运算符如果类型不一致，会自动拆箱成基本类型，所以导致了空指针的问题。</strong></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T12:49:11+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 4, 2020</p>
+  </a>
+</div>
+
         
       
-    
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/problems/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>problems</p></a></div>
+
+
+        
+      
+    </div>
   </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/06/24/algorithms-sort/'>
+                <p class='title'>排序算法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>总结一下基本算法
+
+
+冒泡排序12345678910111213//冒泡排序   //外部循环遍历确定起始位置，内部循环遍历两个两个元素比较，注意遍历的长度要减去外部的起始位置遍历。   pub...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
   
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-	
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '问题"友人帐"（持续更）',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
-  
-
   
     
     
@@ -735,73 +803,19 @@
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/tech/" href="/categories/tech/"
-            id="categoriestech"
-            ><div class='name'>tech</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/algorithms/" href="/categories/tech/algorithms/"
-            id="categoriestechalgorithms"
-            ><div class='name'>algorithms</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/env/" href="/categories/tech/env/"
-            id="categoriestechenv"
-            ><div class='name'>env</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/java/" href="/categories/tech/java/"
-            id="categoriestechjava"
-            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/net/" href="/categories/tech/net/"
-            id="categoriestechnet"
-            ><div class='name'>net</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/problems/" href="/categories/tech/problems/"
-            id="categoriestechproblems"
-            ><div class='name'>problems</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/algorithms/" style="font-size: 19px; color: #777">algorithms</a> <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/problems/" style="font-size: 14px; color: #999">problems</a> <a href="/tags/rabbitmq/" style="font-size: 14px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a> <a href="/tags/sort/" style="font-size: 14px; color: #999">sort</a>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li></ol>
     </div>
   </section>
 
@@ -863,14 +877,6 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>
