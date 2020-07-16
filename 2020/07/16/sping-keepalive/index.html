@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: algorithms - ChelseaRay</title>
+    <title>spring项目配置keepalive - ChelseaRay</title>
   
+    <meta name="keywords" content="spring">
+  
+  
+    <meta name="description" content="spring项目配置keep alive">
   
 
   <!-- feed -->
@@ -500,27 +502,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -530,11 +517,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/06/24/algorithms-sort/">
-      排序算法
+  <h1 class="title">
+    <a href="/2020/07/16/sping-keepalive/">
+      spring项目配置keepalive
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -557,9 +544,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/tech/algorithms/' rel="nofollow">
+    <a href='/categories/tech/spring/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/algorithms</p>
+      <p>tech/spring</p>
     </a>
   </div>
 
@@ -570,7 +557,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 24, 2020</p>
+    <p>发布于：Jul 16, 2020</p>
   </a>
 </div>
 
@@ -582,7 +569,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2020/06/24/algorithms-sort/" class="leancloud_visitors" data-flag-title="排序算法">
+      <span id="/2020/07/16/sping-keepalive/" class="leancloud_visitors" data-flag-title="spring项目配置keepalive">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -612,161 +599,144 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总结一下基本算法</p>
-      
-    </div>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>spring项目配置keep alive</p>
+<a id="more"></a>
+<h2 id="服务端："><a href="#服务端：" class="headerlink" title="服务端："></a>服务端：</h2><blockquote>
+<p>WebServerConfig implements WebServerFactoryCustomizer<ConfigurableWebServerFactory><br>目的是因为长连接最大连接次数spring没有提供配置的参数，需要手动修改tomcat参数，就使用这种方式。重写customize方法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">customize</span><span class="params">(ConfigurableWebServerFactory factory)</span> </span>&#123;</span><br><span class="line">       ((TomcatServletWebServerFactory)factory).addConnectorCustomizers(<span class="keyword">new</span> TomcatConnectorCustomizer() &#123;</span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">customize</span><span class="params">(Connector connector)</span> </span>&#123;</span><br><span class="line">               Http11NioProtocol protocol= (Http11NioProtocol) connector.getProtocolHandler();</span><br><span class="line">               <span class="comment">//设置30秒无响应则断开连接</span></span><br><span class="line">               protocol.setKeepAliveTimeout(<span class="number">30000</span>);</span><br><span class="line">               <span class="comment">//设置最大N次请求后则断开连接</span></span><br><span class="line">               protocol.setMaxKeepAliveRequests(<span class="number">8000</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>增加配置：</p>
+<blockquote>
+<p>server.connection-timeout=-1<br>服务端会默认60s关闭空闲的连接，-1则永久不关闭。</p>
+</blockquote>
+<h2 id="客户端："><a href="#客户端：" class="headerlink" title="客户端："></a>客户端：</h2><p>httpclient设置如下参数保持长连接，并且增加池，http header中增加keep-alive头</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HttpClientProxy</span><span class="params">(<span class="keyword">int</span> maxTotal, <span class="keyword">int</span> defaultMaxPerRoute)</span> </span>&#123;</span><br><span class="line">       HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();</span><br><span class="line">       PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = <span class="keyword">new</span> PoolingHttpClientConnectionManager();</span><br><span class="line">       poolingHttpClientConnectionManager.setMaxTotal(maxTotal);</span><br><span class="line">       poolingHttpClientConnectionManager.setDefaultMaxPerRoute(defaultMaxPerRoute);</span><br><span class="line">       httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);</span><br><span class="line">       httpClientBuilder.setDefaultHeaders(getDefaultHeaders());</span><br><span class="line">       httpClientBuilder.setKeepAliveStrategy(DefaultConnectionKeepAliveStrategy.INSTANCE);</span><br><span class="line">       <span class="keyword">this</span>.httpClient = httpClientBuilder.build();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Header&gt; <span class="title">getDefaultHeaders</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       List&lt;Header&gt; headers = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       headers.add(<span class="keyword">new</span> BasicHeader(<span class="string">"Connection"</span>, <span class="string">"Keep-Alive"</span>));</span><br><span class="line">       <span class="keyword">return</span> headers;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+            <div class='article_footer'>
+              
+                
+  
     
-      
-        <div class="button readmore">
-          <a href="/2020/06/24/algorithms-sort/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+              
+            </div>
+          
         </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/06/21/algorithms-bigNumAdd/">
-      bigNumAdd,Sub
-    </a>
-  </h2>
 
 
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="http://rayl0726.github.io" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/rayl0726/rayl0726.github.io@master/mylist/avatar.jpg">
-    <p>ChelseaRay</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/tech/algorithms/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>tech/algorithms</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-16T20:18:37+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 21, 2020</p>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 16, 2020</p>
   </a>
 </div>
 
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/06/21/algorithms-bigNumAdd/" class="leancloud_visitors" data-flag-title="bigNumAdd,Sub">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
         
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <p>今天做了一下两个大数相加的问题，java中偷懒的话可以直接bigDecimal类使用，自己觉得还是写一下练习</p>
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>spring</p></a></div>
+
+
+        
       
     </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/21/algorithms-bigNumAdd/">
-            read more <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
   </section>
-</article>
 
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/04/tech-problems/'>
+                <p class='title'>问题"友人帐"（持续更）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>记录一些发现的问题吧
+
+1.compareTo方法的问题问题描述:
+由于业务的关系需要对某个对象的列表进行特殊逻辑的排序，但是在完成后发现报了个异常
+
+comparison method vio...</p>
+              </a>
+            
           </div>
         
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
       
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-    
-  
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'spring项目配置keepalive',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
-  
-
   
     
     
@@ -790,78 +760,19 @@
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='http://rayl0726.github.io/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/tech/" href="/categories/tech/"
-            id="categoriestech"
-            ><div class='name'>tech</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/algorithms/" href="/categories/tech/algorithms/"
-            id="categoriestechalgorithms"
-            ><div class='name'>algorithms</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/env/" href="/categories/tech/env/"
-            id="categoriestechenv"
-            ><div class='name'>env</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/java/" href="/categories/tech/java/"
-            id="categoriestechjava"
-            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/net/" href="/categories/tech/net/"
-            id="categoriestechnet"
-            ><div class='name'>net</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/problems/" href="/categories/tech/problems/"
-            id="categoriestechproblems"
-            ><div class='name'>problems</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tech/spring/" href="/categories/tech/spring/"
-            id="categoriestechspring"
-            ><div class='name'>spring</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='http://rayl0726.github.io/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/algorithms/" style="font-size: 19px; color: #777">algorithms</a> <a href="/tags/concurrent/" style="font-size: 14px; color: #999">concurrent</a> <a href="/tags/http/" style="font-size: 14px; color: #999">http</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/list/" style="font-size: 14px; color: #999">list</a> <a href="/tags/problems/" style="font-size: 14px; color: #999">problems</a> <a href="/tags/rabbitmq/" style="font-size: 14px; color: #999">rabbitmq</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/set/" style="font-size: 14px; color: #999">set</a> <a href="/tags/sort/" style="font-size: 14px; color: #999">sort</a> <a href="/tags/spring/" style="font-size: 14px; color: #999">spring</a>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端："><span class="toc-text">服务端：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端："><span class="toc-text">客户端：</span></a></li></ol>
     </div>
   </section>
 
